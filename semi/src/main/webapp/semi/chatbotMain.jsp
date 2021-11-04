@@ -10,7 +10,7 @@
 	$(function(){
 	    $(function(){
 	        $("img[class=chatImg]").on("click", function(){
-	            var win = window.open("chatbotUI.jsp", "_blank", "width=365, height=757, location=no, scrollbars=no, fullscreen=no, resizable=no, left=500, top=500");
+	            var win = window.open("chatbotUI.jsp", "_blank", "width=325, height=757, location=no, scrollbars=no, fullscreen=no, resizable=no, left=500, top=500");
 
 	        });
 	    })

@@ -33,7 +33,7 @@
 				</tr>
 							
 				<tr>
-					<td> <a href="">아이디&비밀번호찾기 / </a> </td>
+					<td> <a href="find.jsp">아이디&비밀번호찾기 / </a> </td>
 					<td><a href="register.jsp">회원가입</a></td>
 				</tr>
 				

@@ -5,15 +5,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
-@NoArgsConstructor
 @Data
+@NoArgsConstructor
 public class TongVO {
 
 	String id;
 	String pw;
-	String name;
-	String ssn;
-	String phone;
+	String uname;
+	String burth;
+	String gender;
+	String hp;
 	String email;
+	int grade;
 	
 }

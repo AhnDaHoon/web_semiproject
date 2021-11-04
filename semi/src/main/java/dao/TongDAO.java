@@ -44,7 +44,7 @@ public class TongDAO {
 	// 로그인 처리
 	public TongVO selectOne(String id, String pw) {
 		sb.setLength(0);
-		sb.append("SELECT id, pw, name, ssn, phone, email ");
+		sb.append("SELECT id, pw, uname, birth, gender, hp, email, grade ");
 		sb.append("FROM tong_member ");
 		sb.append("WHERE id = ? AND pw = ? ");
 		
@@ -59,12 +59,14 @@ public class TongDAO {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				String name = rs.getString("name");
-				String ssn = rs.getString("ssn");
-				String phone = rs.getString("phone");
+				String uname = rs.getString("uname");
+				String birth = rs.getString("birth");
+				String gender = rs.getString("gender");
+				String hp = rs.getString("phone");
 				String email = rs.getString("email");
+				int grade = rs.getInt("grade");
 				
-				vo = new TongVO(id, pw, name, ssn, phone, email);
+				vo = new TongVO(id, pw, uname, birth, gender, hp, email, grade);
 			}
 			conn.close();
 		} catch (SQLException e) {
@@ -78,7 +80,7 @@ public class TongDAO {
 	public void insertOne(TongVO vo) {
 		sb.setLength(0);
 		sb.append("INSERT INTO tong_member ");
-		sb.append("VALUES ( ? , ? , ? , ? , ? , ? ) ");
+		sb.append("VALUES ( ? , ? , ? , ? , ? , ?, ?, ? ) ");
 		
 		try {
 			conn = ds.getConnection();
@@ -86,10 +88,12 @@ public class TongDAO {
 			
 			pstmt.setString(1, vo.getId());
 			pstmt.setString(2, vo.getPw());
-			pstmt.setString(3, vo.getName());
-			pstmt.setString(4, vo.getSsn());
-			pstmt.setString(5, vo.getPhone());
-			pstmt.setString(6, vo.getEmail());
+			pstmt.setString(3, vo.getUname());
+			pstmt.setString(4, vo.getBurth());
+			pstmt.setString(5, vo.getGender());
+			pstmt.setString(6, vo.getHp());
+			pstmt.setString(7, vo.getEmail());
+			pstmt.setInt(8, vo.getGrade());
 			
 			pstmt.executeUpdate();
 			conn.close();
@@ -100,7 +104,7 @@ public class TongDAO {
 	
 	public boolean isExists(String id) {
 		sb.setLength(0); 
-		sb.append("SELECT id, pw, name, ssn, phone, email ");
+		sb.append("SELECT id, pw, uname, birth, gender, hp, email, grade ");
 		sb.append("FROM tong_member ");
 		sb.append("WHERE id = ? ");
 		boolean b = false;
@@ -123,7 +127,7 @@ public class TongDAO {
 	// 아이디찾기
 	public String findID(String name, String phone) {
 		sb.setLength(0); 
-		sb.append("SELECT id, pw, name, ssn, phone, email ");
+		sb.append("SELECT id, pw, uname, birth, gender, hp, email, grade ");
 		sb.append("FROM tong_member ");
 		sb.append("WHERE name = ? and phone = ? ");
 		String id = "null";
@@ -150,7 +154,7 @@ public class TongDAO {
 	// 비밀번호찾기
 	public String findPW(String id, String email) {
 		sb.setLength(0); 
-		sb.append("SELECT id, pw, name, ssn, phone, email ");
+		sb.append("SELECT id, pw, uname, birth, gender, hp, email, grade ");
 		sb.append("FROM tong_member ");
 		sb.append("WHERE id = ? and email = ? ");
 		String pw = "null";
