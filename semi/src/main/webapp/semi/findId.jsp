@@ -9,11 +9,11 @@
 </head>
 <body>
 	<%
-		String name = request.getParameter("name");
-		String phone = request.getParameter("phone");
+		String uname = request.getParameter("uname");
+		String HP = request.getParameter("HP");
 		
 		TongDAO dao = new TongDAO();
-		String findId = dao.findID(name, phone);
+		String findId = dao.findID(uname, HP);
 		if(findId != "null"){
 	%>
 		<h1>아이디는<%= findId %> 입니다.</h1>			
@@ -24,8 +24,8 @@
 	<%
 		}
 	%>			
-		<h2><%= name %></h2>
-		<h2><%= phone %></h2>
+		<h2><%= uname %></h2>
+		<h2><%= HP %></h2>
 		
 		
 

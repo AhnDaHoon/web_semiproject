@@ -6,25 +6,32 @@
     <meta charset="UTF-8">
 <title>register</title>
 <style>
-	#container{
+	#container {
 		position: absolute;
 		top: 10%;
 		left: 40%;
 	}
 	
-	input{
+	input {
 		margin: 10px;
 	}
 	
-	.txt{
-		
+	.txt {
 		width: 300px;
 	}
 	
-	.check{
+	.ptxt {
+		width: 70px;
 	}
 	
-	#submit{
+	.etxt {
+		width: 130px;
+	}
+	
+	.check {
+	}
+	
+	#submit {
 		margin-top: 10%;
 		margin-left: 40%;
 	}
@@ -39,27 +46,37 @@
 <script src="../js/httpRequest.js"></script>
 <script type="text/javascript">
 
-
-// 	// 아이디체크 성공하면 true로변경
 	var idCheckBool = false;
 	var pwCheckBool = false;
+	var email1CheckBool = false;
+	var email2CheckBool = false;
 	
 	var allData = {};
+	
+	// 1. 가입완료 입력검사(id, pw, name, birth, gender, phone, email, check)
+	// 2. 데이터 넘겨주기
+	
 	$(function(){
-		// 체크사항 검사, 아이디중복체크, 비밀번호체크, 필수사항체크, 이메일체크, 전화번호체크, 주민등록번호체크
+		// 가입완료 검사
 		$("#submit").on("click", function(){
-			if($('#check1').is(':checked') == true && $('#check2').is(':checked') == true && $('#check3').is(':checked') == true && idCheckBool == true && pwCheckBool == true ){
+			console.log($('select[name=selectEmail]').val());
+			
+			if(idCheckBool == true && pwCheckBool == true &&
+			   $('#check1').is(':checked') == true && $('#check2').is(':checked') == true && 
+			   $('#check3').is(':checked') == true && 
+			   !$("#name").val().trim() == '' && 
+			   !$("select[name=year]").val() == '' &&
+			   !$("select[name=month]").val() == '' &&
+			   !$("select[name=day]").val() == '' &&
+			   !$('input[name=gender]:checked').val() == '' 
+			){
 				console.log("체크됨");
 				// 체크사항 검사가 완료되면 버튼을 submit으로 변경 후 제출
 				$("#submit").attr("type","submit");
-
-// 				location.action = "registerOk.jsp";
-
 			}else{
-				console.log("체크안됨")
-				console.dir($("input[name=ssn]"));
-			}
-			
+				console.log("체크안됨");
+			}   
+			 
 		});
 		
 		// 아이디 검사
@@ -119,28 +136,44 @@
 	            }
 	        });
 	    });
+		
+		// 이메일 검사
+	   /*  $("#email1").on("keyup", function(){
+	    	var u_email = $("#user_email");
+	        // 이메일 형식 : 알파벳+숫자@알파벳+숫자.알파벳+숫자 
+	        var regEmail = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+	
+	        if(!u_email.val() ){
+ 	            alert('이메일주소를 입력 해 주세요');
+	            u_email.focus();
+	            return false;
+ 	        } else {
+ 	            if(!regEmail.test(u_email.val())) {
+ 	                alert('이메일 주소가 유효하지 않습니다');
+	                u_email.focus();
+	                return false;
+ 	            }
+ 	        }
+ 	    }); */
+		
+		// 이메일 입력방식 
+		$("#selectEmail").change(function (){
+			$("#selectEmail option:selected").each(function (){
+				// 직접 입력
+				if($(this).val() == 'user') {
+					$("#txtEmail2").val('');
+					$("#txtEmail2").attr("disabled", false);
+				}
+				// 선택
+				else {
+					$("#txtEmail2").val($(this).text());
+					$("#txtEmail2").attr("disabled", true);
+				}
+			});
+		});
+		
 	})
 
-
-// 		// 이메일 유효성 검사
-// 	    $("#user_email").on("keyup", function(){
-// 	    	var u_email = $("#user_email");
-// 	        // 정규식 - 이메일 유효성 검사
-// 	        var regEmail = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-	
-// 	        if( !u_email.val() ){
-// 	            alert('이메일주소를 입력 해 주세요');
-// 	            u_email.focus();
-// 	            return false;
-// 	        } else {
-// 	            if(!regEmail.test(u_email.val())) {
-// 	                alert('이메일 주소가 유효하지 않습니다');
-// 	                u_email.focus();
-// 	                return false;
-// 	            }
-// 	        }
-// 	    });
-	    
 </script>
 </head>
 
@@ -149,7 +182,7 @@
 	    <form action="registerOk.jsp" method="GET" id="form">
 	    	<table>	
 		        <tr>
-		        	<td><input type="text" name="id" placeholder="ID"  class="txt"></td>
+		        	<td><input type="text" name="id" placeholder="ID" class="txt"></td>
 		        	<td> <input type="button" value="아이디 중복확인" id="idcheck"/> </td>
 				</tr>
 				
@@ -172,24 +205,145 @@
 				</tr>
 				
 	    		<tr>
-		        	<td><input type="text" name="name" placeholder="이름" class="txt"></td>
+		        	<td><input type="text" name="uname" id="name" placeholder="이름" class="txt"></td>
 				</tr>
-				
 				<tr>
-			        <td><input type="number" name="ssn" placeholder="주민등록번호" class="txt"></td>
-	<!-- 		        <td>- <input type="number" name="residentno2" placeholder="주민등록번호"></td> -->
-		        </tr>
-		        
-				<tr>
-		        	<td><input type="number" name="phone" placeholder="전화번호" class="txt"></td>
-	<!-- 	        	<td>- <input type="number" name="phonenumber2"></td> -->
-	<!-- 	        	<td>- <input type="number" name="phonenumber3"></td> -->
+					<td>
+						<select name="year">
+							<option value="">출생년도</option>
+							<option value="1970">1970</option>
+							<option value="1971">1971</option>
+							<option value="1972">1972</option>
+							<option value="1973">1973</option>
+							<option value="1974">1974</option>
+							<option value="1975">1975</option>
+							<option value="1976">1976</option>
+							<option value="1977">1977</option>
+							<option value="1978">1978</option>
+							<option value="1979">1979</option>
+							<option value="1980">1980</option>
+							<option value="1981">1981</option>
+							<option value="1982">1982</option>
+							<option value="1983">1983</option>
+							<option value="1984">1984</option>
+							<option value="1985">1985</option>
+							<option value="1986">1986</option>
+							<option value="1987">1987</option>
+							<option value="1988">1988</option>
+							<option value="1989">1989</option>
+							<option value="1990">1990</option>
+							<option value="1991">1991</option>
+							<option value="1992">1992</option>
+							<option value="1993">1993</option>
+							<option value="1994">1994</option>
+							<option value="1995">1995</option>
+					        <option value="1996">1996</option>
+					        <option value="1997">1997</option>
+					        <option value="1998">1998</option>
+					        <option value="1999">1999</option>
+					        <option value="2000">2000</option>
+					        <option value="2001">2001</option>
+					        <option value="2002">2002</option>
+					        <option value="2003">2003</option>
+					        <option value="2004">2004</option>
+					        <option value="2005">2005</option>
+					        <option value="2006">2006</option>
+					        <option value="2007">2007</option>
+						</select>
+						<select name="month">
+					        <option value="">월</option>
+					        <option value="1">1</option>
+					        <option value="2">2</option>
+					        <option value="3">3</option>
+					        <option value="4">4</option>
+					        <option value="5">5</option>
+					        <option value="6">6</option>
+					        <option value="7">7</option>
+					        <option value="8">8</option>
+					        <option value="9">9</option>
+					        <option value="10">10</option>
+					        <option value="11">11</option>
+					        <option value="12">12</option>
+					      </select>
+					      <select name="day">
+					        <option value="">일</option>
+					        <option value="1">1</option>
+					        <option value="2">2</option>
+					        <option value="3">3</option>
+					        <option value="4">4</option>
+					        <option value="5">5</option>
+					        <option value="6">6</option>
+					        <option value="7">7</option>
+					        <option value="8">8</option>
+					        <option value="9">9</option>
+					        <option value="10">10</option>
+					        <option value="11">11</option>
+					        <option value="12">12</option>
+					        <option value="13">13</option>
+					        <option value="14">14</option>
+					        <option value="15">15</option>
+					        <option value="16">16</option>
+					        <option value="17">17</option>
+					        <option value="18">18</option>
+					        <option value="19">19</option>
+					        <option value="20">20</option>
+					        <option value="21">21</option>
+					        <option value="22">22</option>
+					        <option value="23">23</option>
+					        <option value="24">24</option>
+					        <option value="25">25</option>
+					        <option value="26">26</option>
+					        <option value="27">27</option>
+					        <option value="28">28</option>
+					        <option value="29">29</option>
+					        <option value="30">30</option>
+					        <option value="31">31</option>
+					      </select>
+					</td>
 				</tr>
-				
-	
 				<tr>
-			        <td><input type="text" name="email" placeholder="이메일" class="txt" maxlength="40" id="user_email"></td>
-<!-- 			        <td>@<input type="text" name="email_domain" id="" /> </td> -->
+					<td>
+						<input type="radio" name="gender" value="man"/>남성
+						<input type="radio" name="gender" value="woman"/>여성
+					</td>
+				</tr>
+				<tr>
+		        	<td>
+		        		<select name="phone1">
+		        			<option value="">선택</option>
+		        			<option value="010">010</option>
+		        			<option value="011">011</option>
+		        			<option value="016">016</option>
+		        			<option value="02">02</option>
+		        			<option value="031">031</option>
+		        			<option value="032">032</option>
+		        			<option value="041">041</option>
+		        			<option value="042">042</option>
+		        			<option value="043">043</option>
+		        			<option value="044">044</option>
+		        			<option value="051">051</option>
+		        			<option value="052">052</option>
+		        			<option value="053">053</option>
+		        		</select>
+		        		-
+		        		<input type="number" name="phone2" placeholder="전화번호" class="ptxt">
+		        		-
+		        		<input type="number" name="phone3" class="ptxt">
+		        	</td>
+				</tr>
+				<tr>
+			        <td>
+			        	<input type="text" name="txtEmail1" placeholder="이메일" class="etxt" maxlength="40" id="txtEmail1">
+			        	@
+			        	<input type="text" name="txtEmail2" placeholder="직접입력" class="etxt" maxlength="40" id="txtEmail2">
+			        	<select name="selectEmail" id="selectEmail">
+			        		<option value="user">직접입력</option>
+			        		<option value="naver.com">naver.com</option>
+			        		<option value="gamil.com">gamil.com</option>
+			        		<option value="daum.net">daum.net</option>
+			        		<option value="nate.com">nate.com</option>
+			        	</select>
+			        </td>
 				</tr>
 	
 				<tr>

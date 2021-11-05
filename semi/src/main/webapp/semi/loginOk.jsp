@@ -27,10 +27,12 @@
 	%>
 			<h1>ID: <%= vo.getId() %></h1>
 			<h1>PWD: <%= vo.getPw() %></h1>
-			<h1>NAME: <%= vo.getName() %></h1>
-			<h1>PHONE: <%= vo.getPhone() %></h1>
-			<h1>SSN: <%= vo.getSsn() %></h1>
+			<h1>NAME: <%= vo.getUname() %></h1>
+			<h1>BURTH: <%= vo.getBurth() %></h1>
+			<h1>GENDER: <%= vo.getGender() %></h1>
+			<h1>HP: <%= vo.getHp() %></h1>
 			<h1>EMAIL: <%= vo.getEmail() %></h1>
+			<h1>GRADE: <%= vo.getGrade() %></h1>
 
 	<%
 		}else{

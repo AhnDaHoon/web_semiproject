@@ -178,4 +178,52 @@ public class TongDAO {
 		return pw;
 	}
 	
+	public boolean idPwCheck(String id, String pw) {
+		sb.setLength(0); 
+		sb.append("SELECT id, pw, uname, birth, gender, hp, email, grade ");
+		sb.append("FROM tong_member ");
+		sb.append("WHERE id = ? and pw = ? ");
+		boolean b = false;
+
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sb.toString());
+			pstmt.setString(1, id);
+			pstmt.setString(2, pw);
+			
+			rs = pstmt.executeQuery();
+			
+			b = rs.next();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return b?true:false;
+
+	}
+	
+	public void newPwEmail(String repw ,String email, String id, String pw ) {
+		sb.setLength(0); 
+		sb.append("UPDATE tong_member ");
+		sb.append("SET pw = ? email = ?");
+		sb.append("WHERE id = ? and pw = ?");
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sb.toString());
+			pstmt.setString(1, repw);
+			pstmt.setString(2, email);
+			pstmt.setString(3, id);
+			pstmt.setString(4, pw);
+
+
+			pstmt.executeUpdate();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+		}
+	}
+	
 }// class end
