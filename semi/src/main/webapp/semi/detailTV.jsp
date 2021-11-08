@@ -6,6 +6,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+	.whole{
+		width: 1800px;
+		min-width: 1800px;
+		margin: 0 auto;
+	}
+
 	.container{
 		background: silver;
 	}
@@ -74,6 +80,7 @@
 </style>
 </head>
 <body>
+<div class="whole">
 	<jsp:include page="chatbotMain.jsp"></jsp:include>
 	<jsp:include page="header.jsp"></jsp:include>
 	
@@ -130,5 +137,7 @@
 	</div>	
 	
 	<jsp:include page="footer.jsp"></jsp:include>
+	
+</div>
 </body>
 </html>

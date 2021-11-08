@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 </head>
 <style>
+	.whole{
+		width: 1800px;
+		min-width: 1800px;
+		margin: 0 auto;
+	}
+
     *{
         margin: 0px;
         padding: 0px;
@@ -139,6 +145,9 @@
 </script>
 
 <body>
+
+<div class="whole">
+
 	<!-- 헤더 연결  -->
     <jsp:include page="header.jsp"></jsp:include>
     
@@ -198,5 +207,7 @@
     <br><br><br><br><br><br><br><br><br><br><br>
     <!-- 푸터 연결  -->
 	<jsp:include page="footer.jsp"></jsp:include>
+	
+</div>
 </body>
 </html>

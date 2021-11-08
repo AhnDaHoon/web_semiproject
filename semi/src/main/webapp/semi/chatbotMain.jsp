@@ -20,13 +20,14 @@
 <style>
     .chatImg:hover{
         cursor: pointer;
-
     }
     
     .chatImg{
-        position: relative;
-        left: 500px;
-        top: 500px;
+        position: fixed;
+        top: 80%;
+        right: 8%;
+        width: 50px;
+        height: 50px;
     }
 </style>
 </head>

@@ -1,3 +1,5 @@
+<%@page import="vo.recentlyViewedItemsVO"%>
+<%@page import="dao.recentlyViewedItemsDAO"%>
 <%@page import="vo.TongVO"%>
 <%@page import="dao.TongDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -16,11 +18,10 @@
 		TongDAO dao = new TongDAO();
 		TongVO vo = dao.selectOne(id, pw);
 		
+		recentlyViewedItemsDAO rdao = new recentlyViewedItemsDAO();
+		recentlyViewedItemsVO rvo = new recentlyViewedItemsVO();
+		
 		if(vo != null){
-			/* !-- 로그인이 되어 있는 상태라면 이름 --> */
-			// sesstion 내장객체
-			/* session.setAttribute("이름", 객체); */
-			// session 객체에 vo라는 이름으로 MemberVO객체의 속성으로 지정
 			session.setAttribute("vo", vo);
 	
 // 			response.sendRedirect("main.jsp");
@@ -35,10 +36,14 @@
 			<h1>GRADE: <%= vo.getGrade() %></h1>
 
 	<%
+			
 		}else{
 
 	%>
 		<h1>값이 존재하지 않습니다.</h1>
+		<h1><%= id %></h1>
+		<h1><%= pw %></h1>
+		<h1><%= vo %></h1>
 	
 	<%
 		}

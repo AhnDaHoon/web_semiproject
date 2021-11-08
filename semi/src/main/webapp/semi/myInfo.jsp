@@ -6,17 +6,23 @@
 <meta charset="UTF-8">
 <title>myInfo</title>
 <style>
+	.whole{
+		width: 1800px;
+		min-width: 1800px;
+		margin: 0 auto;
+	}
 
 	.container {
-		position: absolute;
-		top: 30%;
-		left: 45%;
 		text-align: center;
-		padding: 0;
-		margin: 0;
 	}
 	
-	input {
+	.container>table{
+		margin: 0 auto;
+		position: relative;
+		top: 100px;
+	}
+	
+	#id, #pw, #repw, #email, #code, #save {
 		width: 100%;
 		height: 30px;
 		margin: 0px;
@@ -38,6 +44,9 @@
 </style>
 </head>
 <body>
+<div class="whole">
+	<jsp:include page="header.jsp"></jsp:include>
+
 	<form action="MyInfoOk.jsp">
 		<div class="container">
 		
@@ -79,5 +88,7 @@
 		</div>
 	</form>
 	
+	<jsp:include page="footer.jsp"></jsp:include>
+</div>
 </body>
 </html>

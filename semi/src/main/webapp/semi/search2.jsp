@@ -6,23 +6,31 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	*{
-		padding:0;
-		margin: 0px auto;
-	}
+.whole{
+		width: 1800px;
+		min-width: 1800px;
+		margin: 0 auto;
+}
 
+*{
+	padding:0;
+	margin: 0px auto;
+}
 
-.container table{
-		padding: 230px 0 50px 0;
-		
+.container{
+	margin: 100px;
 }
 
 
+.container>table{
+	margin: 0 auto;
+}
+
 .container table th,td{
-        padding: 10px;
-        text-align: left;
-        border: #d5d5d5;
-        border-collapse:collapse;
+    adding: 10px;
+    text-align: left;
+    border: #d5d5d5;
+    border-collapse:collapse;
 }
 
 .container table th{
@@ -36,17 +44,16 @@
         color:white;
         font-weight:bold;
 }
-	
+.container2{
+	width: 960px;
+	margin: 0 auto;
+}
+
 .product_view{
     width:962px;
     padding: 0 0 0 20px;
     box-sizing: border-box;
-   
-}
-
-.product_view .img{
-    left: 0;
-    top: 0;
+   	margin: 0 auto;
 }
 
 body > div.container2{
@@ -54,22 +61,27 @@ body > div.container2{
 	justify-content:center;
 }
 
-.container2 .img > img {
+.img > img {
+	position:relative;
+	top: 50px;
+	left: -100px;
     float: left;
     width:368px;
     height:370px;
-    border:1px solid #e8e8e8;}
+}
 
-.product_view h2 {
+.product_view>h2 {
     font-size: 24px;
     color: #232323;
     line-height: 26px;
     padding: 0 0 20px;
-    border-bottom: 2px solid #333;
     margin: 0 0 15px;
+    display: inline-block;
+    width: 590px;
+    border-bottom: 2px solid #111;
 }
 
-.product_view table th,td{
+.product_view>table th,td{
     font-size: 14px;
     text-align: left;
     color: #444;
@@ -77,7 +89,7 @@ body > div.container2{
 }
 
 
-.product_view table td.price{
+.product_view>table td.price{
     font-size: 22px;
     color:#0a56a9
 }
@@ -88,7 +100,8 @@ body > div.container2{
    
 }
 
-.product_view .btn > div{
+
+.btn > div{
     display: inline-block;
     text-align: center;
     width: 136px;
@@ -100,13 +113,14 @@ body > div.container2{
 }
 
 
-.product_view .btn > div.btn1{
+.btn > div.btn1{
     background: #0a56a9;
 }
 
 </style>
 </head>
 <body>
+<div class="whole">
 	<jsp:include page="header.jsp"></jsp:include>
 	<div class="container">
 		 <table>
@@ -162,9 +176,9 @@ body > div.container2{
     </table>
     </div>
 	    
-	   <div class="container2">
+	  <div class="container2">
         <div class="img">
-            <img src="../images/refri13.jpg" alt="">
+            <img src="../images/puppy.jpg" alt="">
         </div>
         <div class="product_view">
             <h2>삼성전자 RF85A911126</h2>
@@ -172,7 +186,7 @@ body > div.container2{
                 <tbody>
                 <tr>
                     <th>판매가</th>
-                    <td class="price">2,081,390원</td>
+                    <th class="price">2,081,390원</th>
                 </tr>
                 <tr>
                     <th>모델명</th>
@@ -206,35 +220,35 @@ body > div.container2{
 	    
 	<div class="container2">
         <div class="img">
-            <img src="../images/refri13.jpg" alt="">
+            <img src="../images/puppy.jpg" alt="">
         </div>
-        <div class="product_view">
-            <h2>삼성전자 RF85A911126</h2>
+        <div class="product_view">	<!-- db에서 값 가져오기 -->
+            <h2></h2>
             <table>
                 <tbody>
                 <tr>
-                    <th>판매가</th>
-                    <td class="price">2,081,390원</td>
+                    <th></th>
+                    <td class="price"></td>
                 </tr>
                 <tr>
-                    <th>모델명</th>
-                    <td>RS84T5071SL</td>
+                    <th></th>
+                    <td></td>
                 </tr>
                 <tr>
-                    <th>출시연월</th>
-                    <td>2020-03</td>
+                    <th></th>
+                    <td></td>
                 </tr>
                 <tr>
-                    <th>용량</th>
-                    <td>846L</td>
+                    <th></th>
+                    <td></td>
                 </tr>
                 <tr>
-                    <th>도어</th>
-                    <td>2도어</td>
+                    <th></th>
+                    <td></td>
                 </tr>
                 <tr>
-                    <th>제품정보</th>
-                    <td>탁월한 성능과 슬림 스타일로 실속만점 주방을 완성하다</td>
+                    <th></th>
+                    <td></td>
                 </tr>
                 </tbody>
             </table>
@@ -245,93 +259,9 @@ body > div.container2{
     </div>
 	    
 	    <br><br><br>
-	    
-	 <div class="container2">
-        <div class="img">
-            <img src="../images/refri13.jpg" alt="">
-        </div>
-        <div class="product_view">
-            <h2>삼성전자 RF85A911126</h2>
-            <table>
-                <tbody>
-                <tr>
-                    <th>판매가</th>
-                    <td class="price">2,081,390원</td>
-                </tr>
-                <tr>
-                    <th>모델명</th>
-                    <td>RS84T5071SL</td>
-                </tr>
-                <tr>
-                    <th>출시연월</th>
-                    <td>2020-03</td>
-                </tr>
-                <tr>
-                    <th>용량</th>
-                    <td>846L</td>
-                </tr>
-                <tr>
-                    <th>도어</th>
-                    <td>2도어</td>
-                </tr>
-                <tr>
-                    <th>제품정보</th>
-                    <td>탁월한 성능과 슬림 스타일로 실속만점 주방을 완성하다</td>
-                </tr>
-                </tbody>
-            </table>
-            <div class ="btn">
-                <div class="btn1">비교함에 넣기</div>
-            </div>
-    	</div>
-    </div>
-	    
-	    <br><br><br>
-	    
-	 <div class="container2">
-        <div class="img">
-            <img src="../images/refri13.jpg" alt="">
-        </div>
-        <div class="product_view">
-            <h2>삼성전자 RF85A911126</h2>
-            <table>
-                <tbody>
-                <tr>
-                    <th>판매가</th>
-                    <td class="price">2,081,390원</td>
-                </tr>
-                <tr>
-                    <th>모델명</th>
-                    <td>RS84T5071SL</td>
-                </tr>
-                <tr>
-                    <th>출시연월</th>
-                    <td>2020-03</td>
-                </tr>
-                <tr>
-                    <th>용량</th>
-                    <td>846L</td>
-                </tr>
-                <tr>
-                    <th>도어</th>
-                    <td>2도어</td>
-                </tr>
-                <tr>
-                    <th>제품정보</th>
-                    <td>탁월한 성능과 슬림 스타일로 실속만점 주방을 완성하다</td>
-                </tr>
-                </tbody>
-            </table>
-            <div class ="btn">
-                <div class="btn1">비교함에 넣기</div>
-            </div>
-    	</div>
-    </div>
-	    
-	    <br><br><br>  
-	  
-	    
-	<br><br><br><br><br><br><br><br><br><br><br>
+	
 	<jsp:include page="footer.jsp"></jsp:include>
+
+</div>
 </body>
 </html>

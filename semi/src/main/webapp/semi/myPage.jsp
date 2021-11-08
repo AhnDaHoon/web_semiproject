@@ -6,41 +6,43 @@
 <meta charset="UTF-8">
 <title>myPage</title>
 <style>
-	
+	.whole{
+		width: 1800px;
+		min-width: 1800px;
+		margin: 0 auto;
+	}
 	.container {
-		width: 300px;
-		position: absolute;
-		top: 30%;
-		left: 45%;
+		text-align: center;
+		position: relative;
+		top: 100px;
+	}
+	
+	.myPage{
+		margin: 0 auto;
+	}
+	
+	.myPage>a{
+		display: block;
+		margin: 20px;
 	}
 
-	table, th, tr {
-		width: 100%;
-		padding: 25px;
-	}
 </style>
 </head>
 <body>
+<div class="whole">
+	<jsp:include page="header.jsp"></jsp:include>
 
 	<div class="container">
-		<table>
-			<tr>
-				<th><a href="">정보수정</a></th>
-			</tr>
-			<tr>
-				<th><a href="">문의내역</a></th>
-			</tr>
-			<tr>
-				<th><a href="">의견 보내기</a></th>
-			</tr>
-			<tr>
-				<th><a href="">공지사항(부가)</a></th>
-			</tr>
-			<tr>
-				<th><a href="">설정</a></th>
-			</tr>
-		</table>
+		<div class="myPage">
+			<a href="">정보수정</a><br />
+			<a href="">문의내역</a><br />
+			<a href="">의견 보내기</a><br />
+			<a href="">공지사항(부가)</a><br />
+			<a href="">설정</a>
+		</div>
 	</div>
 
+	<jsp:include page="footer.jsp"></jsp:include>
+</div>
 </body>
 </html>

@@ -9,7 +9,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
-
 import vo.TongVO;
 
 public class TongDAO {
@@ -49,7 +48,6 @@ public class TongDAO {
 		sb.append("WHERE id = ? AND pw = ? ");
 		
 		TongVO vo = null;
-		
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sb.toString());
@@ -58,22 +56,23 @@ public class TongDAO {
 			
 			rs = pstmt.executeQuery();
 			
-			if(rs.next()) {
+			if(rs.next()) { 
 				String uname = rs.getString("uname");
 				String birth = rs.getString("birth");
 				String gender = rs.getString("gender");
-				String hp = rs.getString("phone");
+				String hp = rs.getString("hp");
 				String email = rs.getString("email");
 				int grade = rs.getInt("grade");
-				
 				vo = new TongVO(id, pw, uname, birth, gender, hp, email, grade);
 			}
 			conn.close();
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		return vo;
-	}// loginOk() end
+	}
 	
 	
 	// 회원가입
@@ -125,18 +124,18 @@ public class TongDAO {
 	}
 	
 	// 아이디찾기
-	public String findID(String name, String phone) {
+	public String findID(String uname, String HP) {
 		sb.setLength(0); 
 		sb.append("SELECT id, pw, uname, birth, gender, hp, email, grade ");
 		sb.append("FROM tong_member ");
-		sb.append("WHERE name = ? and phone = ? ");
+		sb.append("WHERE uname = ? and HP = ? ");
 		String id = "null";
 
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sb.toString());
-			pstmt.setString(1, name);
-			pstmt.setString(2, phone);
+			pstmt.setString(1, uname);
+			pstmt.setString(2, HP);
 			
 			rs = pstmt.executeQuery();
 			
@@ -225,5 +224,7 @@ public class TongDAO {
 			
 		}
 	}
+	
+	
 	
 }// class end

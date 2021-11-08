@@ -6,13 +6,24 @@
     <meta charset="UTF-8">
 <title>register</title>
 <style>
-	#container {
-		position: absolute;
-		top: 10%;
-		left: 40%;
+	
+	.whole{
+		width: 1800px;
+		min-width: 1800px;
+		margin: 0 auto;
 	}
 	
-	input {
+	
+	.container{
+		position: relative;
+		top: 100px;
+	}
+
+	#form>table {
+		margin: 0 auto;
+	}
+	
+	#idcheck, .txt, #man, #woman, .ptxt, .etxt, .check, #submit {
 		margin: 10px;
 	}
 	
@@ -178,9 +189,12 @@
 </head>
 
 <body>
-	<div id="container">
+<div class="whole">
+	<jsp:include page="header.jsp"></jsp:include>
+	
+	<div class="container">
 	    <form action="registerOk.jsp" method="GET" id="form">
-	    	<table>	
+	    	<table>		<!-- 테이블내 항목이 많아 가운데 정렬 안 된 것처럼 보임 -->
 		        <tr>
 		        	<td><input type="text" name="id" placeholder="ID" class="txt"></td>
 		        	<td> <input type="button" value="아이디 중복확인" id="idcheck"/> </td>
@@ -303,8 +317,8 @@
 				</tr>
 				<tr>
 					<td>
-						<input type="radio" name="gender" value="man"/>남성
-						<input type="radio" name="gender" value="woman"/>여성
+						<input type="radio" name="gender" value="man" id="man"/>남성
+						<input type="radio" name="gender" value="woman" id="woman"/>여성
 					</td>
 				</tr>
 				<tr>
@@ -365,5 +379,9 @@
 			</table>
 	    </form>
     </div>
+    
+    <jsp:include page="footer.jsp"></jsp:include>
+    
+</div>
 </body>
 </html>

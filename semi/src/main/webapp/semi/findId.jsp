@@ -16,16 +16,14 @@
 		String findId = dao.findID(uname, HP);
 		if(findId != "null"){
 	%>
-		<h1>아이디는<%= findId %> 입니다.</h1>			
+			<h1>아이디는<%= findId %> 입니다.</h1>			
 	<%
 		}else{
 	%>
-		<h1>이름과 전화번호를 다시 확인해주세요</h1>
+			<h1>이름과 전화번호를 다시 확인해주세요</h1>
 	<%
 		}
 	%>			
-		<h2><%= uname %></h2>
-		<h2><%= HP %></h2>
 		
 		
 

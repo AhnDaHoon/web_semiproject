@@ -34,19 +34,25 @@
 
 
 <style>
+	.whole{
+		width: 1800px;
+		min-width: 1800px;
+		margin: 0 auto;
+	}
+
     #container {
-        position: absolute;
-        top: 20%;
-        left: 25%;
+    	position:relative;
+        top: 100px;
     }
 
     #boxId {
         width: 500px;
         height: 100px;
         padding: 20px 20px;
-        margin-bottom: 20px;
         border: 3px solid black;
         text-align: center;
+        margin: 0 auto;
+        margin-bottom: 20px;
     }
 
     #boxPw {
@@ -55,9 +61,10 @@
         padding: 20px 20px;
         border: 3px solid black;
         text-align: center;
+        margin: 0 auto;
     }
 
-    input {
+    #name, #phone, #findid, #id, #email, #findpw {
         margin: 5px 5px;
     }
 
@@ -71,11 +78,14 @@
 </style>
 </head>
 <body>
+<div class="whole">
+	<jsp:include page="header.jsp"></jsp:include>
+
 	<div id="container">
 		<div id="boxId">
 			<form action="" id="formid">
-				<input type="text" name="name" id="name" placeholder="이름"/><br>
-				<input type="text" name="phone" id="phone" placeholder="전화번호"/><br>
+				<input type="text" name="uname" id="name" placeholder="이름"/><br>
+				<input type="text" name="HP" id="phone" placeholder="전화번호 (- 포함)"/><p>-</p><br>
 				<input type="button" value="아이디 찾기" id="findid"/>
 			</form>
 		</div>
@@ -88,5 +98,8 @@
 			</form>
 		</div>
 	</div>
+	
+	<jsp:include page="footer.jsp"></jsp:include>
+</div>
 </body>
 </html>
