@@ -19,11 +19,14 @@
 		TongVO vo = dao.selectOne(id, pw);
 		
 		recentlyViewedItemsDAO rdao = new recentlyViewedItemsDAO();
-		recentlyViewedItemsVO rvo = new recentlyViewedItemsVO();
+		recentlyViewedItemsVO rvo = rdao.selectRvd(id);
+		
+		// 세션 유지시간 7일
+		session.setMaxInactiveInterval(60*60*24*7);
 		
 		if(vo != null){
 			session.setAttribute("vo", vo);
-	
+			session.setAttribute("rvo", rvo);
 // 			response.sendRedirect("main.jsp");
 	%>
 			<h1>ID: <%= vo.getId() %></h1>
@@ -35,6 +38,22 @@
 			<h1>EMAIL: <%= vo.getEmail() %></h1>
 			<h1>GRADE: <%= vo.getGrade() %></h1>
 
+<!-- 			최근본 상품 -->
+			<h1><%= rvo.getId() %></h1>
+			<h1><%= rvo.getImgfile1() %></h1>
+			<h1><%= rvo.getImgfile2() %></h1>
+			<h1><%= rvo.getImgfile3() %></h1>
+			<h1><%= rvo.getImgfile4() %></h1>
+			<h1><%= rvo.getImgfile5() %></h1>
+			<h1><%= rvo.getPname1() %></h1>
+			<h1><%= rvo.getPname2() %></h1>
+			<h1><%= rvo.getPname3() %></h1>
+			<h1><%= rvo.getPname4() %></h1>
+			<h1><%= rvo.getPname5() %></h1>
+			
+			<h1><%= session.getMaxInactiveInterval() %></h1>
+						
+			
 	<%
 			
 		}else{

@@ -10,4 +10,5 @@ import lombok.NoArgsConstructor;
 public class testInsertVO {
 	String pname;
 	String imgfile;
+	int pno;
 }

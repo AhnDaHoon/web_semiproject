@@ -95,7 +95,7 @@ li a:hover {
 							<li><a href="login.jsp">로그인</a></li>
 							<li><a href="myPage.jsp">회원가입</a></li>
 							<li><a href="compare1.jsp">비교함</a></li>
-							<li><a href="">최근 본 제품</a></li>
+							<li><a href="recentlyViewedItems.jsp">최근 본 제품</a></li>
 							<li><a href="">새 소식</a></li>
 						</ul>
 					</div>

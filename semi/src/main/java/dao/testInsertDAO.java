@@ -33,9 +33,9 @@ public class testInsertDAO {
 		}
 	}
 	
-	public testInsertVO selectOne(String pname) {
+	public testInsertVO selectOneName(String pname) {
 		sb.setLength(0);
-		sb.append("SELECT pname, imgfile");
+		sb.append("SELECT pno, imgfile, pname ");
 		sb.append("FROM test_insert ");
 		sb.append("WHERE pname = ? ");
 		
@@ -49,8 +49,61 @@ public class testInsertDAO {
 			
 			if(rs.next()) { 
 				String imgfile = rs.getString("imgfile");
+				int pno = rs.getInt("pno");
 
-				vo = new testInsertVO(pname, imgfile);
+				vo = new testInsertVO(pname, imgfile, pno);
+			}
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return vo;
+	}
+	
+	public int counter() {
+		sb.setLength(0);
+		sb.append("SELECT COUNT(pname) co ");
+		sb.append("FROM test_insert ");
+		int count = 0;
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sb.toString());
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) { 
+				count = rs.getInt("co");
+			}
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return count;
+	}
+	
+	public testInsertVO selectOnePno(int pno) {
+		sb.setLength(0);
+		sb.append("SELECT pno, imgfile, pname ");
+		sb.append("FROM test_insert ");
+		sb.append("WHERE pno = ? ");
+		
+		testInsertVO vo = null;
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sb.toString());
+			pstmt.setInt(1, pno);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) { 
+				String imgfile = rs.getString("imgfile");
+				String pname = rs.getString("pname");
+
+				vo = new testInsertVO(pname, imgfile, pno);
 			}
 			conn.close();
 		} catch (SQLException e) {
