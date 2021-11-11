@@ -39,17 +39,17 @@
 			<h1>GRADE: <%= vo.getGrade() %></h1>
 
 <!-- 			최근본 상품 -->
-			<h1><%= rvo.getId() %></h1>
-			<h1><%= rvo.getImgfile1() %></h1>
-			<h1><%= rvo.getImgfile2() %></h1>
-			<h1><%= rvo.getImgfile3() %></h1>
-			<h1><%= rvo.getImgfile4() %></h1>
-			<h1><%= rvo.getImgfile5() %></h1>
-			<h1><%= rvo.getPname1() %></h1>
-			<h1><%= rvo.getPname2() %></h1>
-			<h1><%= rvo.getPname3() %></h1>
-			<h1><%= rvo.getPname4() %></h1>
-			<h1><%= rvo.getPname5() %></h1>
+<%-- 			<h1><%= rvo.getId() %></h1> --%>
+<%-- 			<h1><%= rvo.getImgfile1() %></h1> --%>
+<%-- 			<h1><%= rvo.getImgfile2() %></h1> --%>
+<%-- 			<h1><%= rvo.getImgfile3() %></h1> --%>
+<%-- 			<h1><%= rvo.getImgfile4() %></h1> --%>
+<%-- 			<h1><%= rvo.getImgfile5() %></h1> --%>
+<%-- 			<h1><%= rvo.getPname1() %></h1> --%>
+<%-- 			<h1><%= rvo.getPname2() %></h1> --%>
+<%-- 			<h1><%= rvo.getPname3() %></h1> --%>
+<%-- 			<h1><%= rvo.getPname4() %></h1> --%>
+<%-- 			<h1><%= rvo.getPname5() %></h1> --%>
 			
 			<h1><%= session.getMaxInactiveInterval() %></h1>
 						

@@ -1,3 +1,4 @@
+<%@page import="vo.TongVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -149,6 +150,20 @@
   		display: inline;
     }
     
+    .choice2{
+    	border: 1px solid #1e1c1e;
+    	text-decoration-line: none;
+    	color: #1e1c1e;
+    	font-weight: 700;
+    	height: 34px;
+        background-color: #fff;
+   		border-radius: 17px;
+   		font-size: 13px;
+   		padding: 95px;
+  		position: relative;
+		top: 100px;
+    }
+    
     .first{
     	left: 5px;
     }
@@ -177,25 +192,63 @@
 <!--         	<input type="button" class="btn blue" value="전송" id="messagesend"/> -->
 <!--         </div> -->
 <!--     </div> -->
-    
-    <div class="container">
-        <div class="main">
-       	        <div class="divscroll">
-       	        	<div id="chatbottext">
-       	        		<img id="chatavatar" src="../images/ball15.png" alt="" />
-       	        		<p class="chattext">챗봇 서비스 이용을 위해 [개인정보 수집·이용 동의 안내]에 대한 동의가 필요합니다.동의하시지 않는 경우 챗봇 서비스 이용이 불가합니다.</p><br>
-       	        		<b><a class="choice first" id="no">만 14세 미만입니다.</a></b>
-       	        		<b><a class="choice first" href="chatbotUI2.jsp" id="ok">만 14세 이상입니다.</a></b>
-
-       	        	</div>
-       	        </div>
-        </div>
-        
-        <div class="footer">
-        	<input type="text" name="" id="input" disabled />
-        	<input type="button" class="btn blue" value="전송" id="messagesend"/>
-<!--         	<a class="btn blue" id="chatbtn" href="">전송</a> -->
-        </div>
-    </div>
+    <%
+		Object obj = session.getAttribute("vo");
+		TongVO vo = (TongVO)obj;
+		if(vo != null){
+				
+			
+			if(vo.getId().equals("admin")){
+		%>
+			    <div class="container">
+			        <div class="main">
+			       	        <div class="divscroll">
+			       	        	<div id="chatbottext">
+	<!-- 		       	        	<p class="chattext"></p> -->
+			       	        		<b><a class="choice2 first" href="chatbotUI2.jsp" id="ok">상담하러가기</a></b>
+			       	        	</div>
+			       	        </div>
+			        </div>
+			        
+			        <div class="footer">
+			        	<input type="text" name="" id="input" disabled />
+			        	<input type="button" class="btn blue" value="전송" id="messagesend"/>
+			<!--         	<a class="btn blue" id="chatbtn" href="">전송</a> -->
+			        </div>
+			    </div>	
+		<%
+			}else{
+		%>
+				
+			
+	    %>
+	    <div class="container">
+	        <div class="main">
+	       	        <div class="divscroll">
+	       	        	<div id="chatbottext">
+	       	        		<img id="chatavatar" src="../images/ball15.png" alt="" />
+	       	        		<p class="chattext">챗봇 서비스 이용을 위해 [개인정보 수집·이용 동의 안내]에 대한 동의가 필요합니다.동의하시지 않는 경우 챗봇 서비스 이용이 불가합니다.</p><br>
+	       	        		<b><a class="choice first" id="no">만 14세 미만입니다.</a></b>
+	       	        		<b><a class="choice first" href="chatbotUI2.jsp" id="ok">만 14세 이상입니다.</a></b>
+	
+	       	        	</div>
+	       	        </div>
+	        </div>
+	        
+	        <div class="footer">
+	        	<input type="text" name="" id="input" disabled />
+	        	<input type="button" class="btn blue" value="전송" id="messagesend"/>
+	<!--         	<a class="btn blue" id="chatbtn" href="">전송</a> -->
+	        </div>
+	    </div>
+    <%
+			}
+		}else{
+    %>
+		<h1>로그인하셔야 사용이 가능합니다.</h1>
+	<%
+		}
+	
+	%>		
 </body>
 </html>

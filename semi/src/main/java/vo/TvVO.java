@@ -20,5 +20,6 @@ public class TvVO {
 	String imgfile;
 	int psize;
 	int pixel;
+	String codename;
 	
 }

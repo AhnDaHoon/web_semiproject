@@ -1,3 +1,4 @@
+<%@page import="vo.TongVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,7 +12,6 @@
 	    $(function(){
 	        $("img[class=chatImg]").on("click", function(){
 	            var win = window.open("chatbotUI.jsp", "_blank", "width=325, height=680, location=no, scrollbars=no, fullscreen=no, resizable=no, left=500, top=500");
-
 	        });
 	    })
 	})
@@ -32,6 +32,8 @@
 </style>
 </head>
 <body>
-    <a href="chatbotUI.jsp" target="_blank"><img class="chatImg" src="../images/ball1.png" alt=""></a>
+
+	    <a href="chatbotUI.jsp" target="_blank"><img class="chatImg" src="../images/ball1.png" alt=""></a>
+		
 </body>
 </html>

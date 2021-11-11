@@ -183,6 +183,25 @@ public class recentlyViewedItemsDAO {
 			}
 	}
 	
+	public void InsertOne(String id) {
+		sb.setLength(0);
+		sb.append("INSERT INTO RECENTLYVIEWEDITEMS (id) ");
+		sb.append("VALUES (id = ? )	");
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sb.toString());
+			pstmt.setString(1, id);
+
+			
+			pstmt.executeUpdate();
+			
+			conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
+	
 	
 	
 }

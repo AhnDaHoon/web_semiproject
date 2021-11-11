@@ -1,3 +1,5 @@
+<%@page import="dao.recentlyViewedItemsDAO"%>
+<%@page import="vo.recentlyViewedItemsVO"%>
 <%@page import="dao.TongDAO"%>
 <%@page import="vo.TongVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -52,6 +54,9 @@
 		
 		dao.insertOne(vo);
 	
+		recentlyViewedItemsVO rvo = new recentlyViewedItemsVO();
+		recentlyViewedItemsDAO rdao = new recentlyViewedItemsDAO();
+		rdao.InsertOne(id);
 // 		response.sendRedirect("login.jsp");
 	%>
 		<h1>회원가입 성공</h1>
