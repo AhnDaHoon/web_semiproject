@@ -2,15 +2,17 @@
 	pageEncoding="UTF-8"%>
 <style>
 * {
+	font-family: "야놀자 야체";
+	font-size: 25px;
 	margin: 0px;
 	padding: 0px;
 }
 
 #headerdiv {
-	background: silver;
 	height: 250px;
-	width: 1800px;
 	min-width: 1800px;
+	border-bottom: 3px solid rgba(118,167,247,0.8);
+	margin: 0 auto;
 }
 
 ul {
@@ -18,6 +20,7 @@ ul {
 	margin: 0;
 	padding: 0;
 	width: 480px;
+	min-width: 480px;
 	background: white;
 }
 
@@ -32,6 +35,10 @@ li a {
 	text-decoration: none;
 	font-weight: bold;
 	border: 1px solid grey;
+}
+
+li {
+	width: 550px;
 }
 
 li a:hover {
@@ -73,7 +80,7 @@ li a:hover {
 	display: inline-block;
 	vertical-align: bottom;
 	position: relative;
-	left: 25%;
+	left: 22%;
 	top: 5%;
 }
 
@@ -83,7 +90,7 @@ li a:hover {
 			<tr>
 				<th>
 					<div id="headerimgdiv">
-						<img src="../images/tong.png" alt="" id="logo"style="width: 180px; height: 180px;" />
+						<a href="search1.jsp"><img src="../images/tong.png" alt="" id="logo"style="width: 180px; height: 180px;" /></a>
 					</div>
 				</th>
 				<th>
@@ -95,7 +102,7 @@ li a:hover {
 							<li><a href="login.jsp">로그인</a></li>
 							<li><a href="myPage.jsp">회원가입</a></li>
 							<li><a href="compare1.jsp">비교함</a></li>
-							<li><a href="recentlyViewedItems.jsp">최근 본 제품</a></li>
+							<li><a href="">최근 본 제품</a></li>
 							<li><a href="">새 소식</a></li>
 						</ul>
 					</div>

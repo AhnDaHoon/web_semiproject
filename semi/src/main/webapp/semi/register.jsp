@@ -4,27 +4,42 @@
 <html>
 <head>
     <meta charset="UTF-8">
-<title>register</title>
+<title>통하다 :: 회원가입</title>
 <style>
-	
+	*{
+		font-size: 25px;
+		font-family: "야놀자 야체";
+	}
+    .container {
+    	position:relative;
+        top: 50px;
+    }
+    .hdiv{
+    	margin: 0 auto;
+    	width: 460px;
+    	margin-bottom: 50px;
+    }
+    h1{
+    	font-size: 50px;
+    	border-bottom: 2px solid silver;
+    }		
 	.whole{
 		width: 1800px;
 		min-width: 1800px;
 		margin: 0 auto;
 	}
 	
-	
-	.container{
-		position: relative;
-		top: 100px;
-	}
-
 	#form>table {
 		margin: 0 auto;
 	}
 	
 	#idcheck, .txt, #man, #woman, .ptxt, .etxt, .check, #submit {
 		margin: 10px;
+	}
+	
+	#idcheck{
+		position: relative;
+		left: -190px;
 	}
 	
 	.txt {
@@ -40,17 +55,58 @@
 	}
 	
 	.check {
+		zoom: 1.5;
 	}
 	
 	#submit {
-		margin-top: 10%;
-		margin-left: 40%;
+		margin-top: 20px;
+		background: #76a7f7;
+		padding: 20px;
 	}
 	
+	#submit>span{
+		font-size: 50px;
+		color: #f7f7f7;
+	}
+	
+	.td{
+		width: 250px;
+	}
+	#tableid{
+		position: relative;
+		left: 150px;
+	}
+	.select{
+		position: relative;
+		left: 10px;
+	}
 /* 	input:number 증가 감소 버튼 없애기 */
 	input::-webkit-inner-spin-button {
 	  -webkit-appearance: none;
 	}
+	
+	input{
+		padding: 3px 10px;
+/*  		padding-right: 10px;  */
+	}
+	.year, .month, .day, .select, #selectEmail{
+		padding: 3px 10px;
+	}
+	
+	#idmsg, #pwmsg{
+		position: relative;
+		left: 10px;
+	}
+	
+	.checkspan{
+		font-size: 25px;
+		position: relative;
+		top: -5px;
+	}
+	
+	#submit:hover {
+		cursor: pointer;
+}
 
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -183,6 +239,11 @@
 			});
 		});
 		
+ 	    
+ 	    $("#submit").on("click", function () {
+			document.frm.submit();
+		})
+ 	    
 	})
 
 </script>
@@ -193,37 +254,40 @@
 	<jsp:include page="header.jsp"></jsp:include>
 	
 	<div class="container">
-	    <form action="registerOk.jsp" method="GET" id="form">
-	    	<table>		<!-- 테이블내 항목이 많아 가운데 정렬 안 된 것처럼 보임 -->
+		<div class="hdiv">
+			<h1>회원가입</h1>
+		</div>
+	    <form action="registerOk.jsp" method="GET" id="form" name="frm">
+	    	<table id="tableid">		<!-- 테이블내 항목이 많아 가운데 정렬 안 된 것처럼 보임 -->
 		        <tr>
-		        	<td><input type="text" name="id" placeholder="ID" class="txt"></td>
-		        	<td> <input type="button" value="아이디 중복확인" id="idcheck"/> </td>
+		        	<td class="td"><input type="text" name="id" placeholder="ID" class="txt"></td>
+		        	<td class="td"> <input type="button" value="아이디 중복확인" id="idcheck"/> </td>
 				</tr>
 				
 				<tr>
-					<td><p id="idmsg"></p> </td>
+					<td class="td"><p id="idmsg"></p> </td>
 				</tr>
 				
 				<tr>
 					
-		        	<td><input type="password" name="pw" placeholder="PW" class="txt"><td>
+		        	<td class="td"><input type="password" name="pw" placeholder="PW" class="txt"><td>
 				</tr>
 				
 				<tr>
-		        	<td><input type="password" name="repw" placeholder="PW 확인" class="txt"><td>
+		        	<td class="td"><input type="password" name="repw" placeholder="PW 확인" class="txt"><td>
 		        	
 				</tr>
 				
 				<tr>
-					<td id="pwmsg"> </td>
+					<td id="pwmsg" class="td"> </td>
 				</tr>
 				
 	    		<tr>
-		        	<td><input type="text" name="uname" id="name" placeholder="이름" class="txt"></td>
+		        	<td class="td"><input type="text" name="uname" id="name" placeholder="이름" class="txt"></td>
 				</tr>
 				<tr>
-					<td>
-						<select name="year">
+					<td class="td">
+						<select name="year" class="select">
 							<option value="">출생년도</option>
 							<option value="1970">1970</option>
 							<option value="1971">1971</option>
@@ -264,7 +328,7 @@
 					        <option value="2006">2006</option>
 					        <option value="2007">2007</option>
 						</select>
-						<select name="month">
+						<select name="month" class="select">
 					        <option value="">월</option>
 					        <option value="1">1</option>
 					        <option value="2">2</option>
@@ -279,7 +343,7 @@
 					        <option value="11">11</option>
 					        <option value="12">12</option>
 					      </select>
-					      <select name="day">
+					      <select name="day" class="select">
 					        <option value="">일</option>
 					        <option value="1">1</option>
 					        <option value="2">2</option>
@@ -316,14 +380,14 @@
 					</td>
 				</tr>
 				<tr>
-					<td>
-						<input type="radio" name="gender" value="man" id="man"/>남성
-						<input type="radio" name="gender" value="woman" id="woman"/>여성
+					<td class="td">
+						<input type="radio" name="gender" value="man" id="man" style="zoom:1.5;"/>남성
+						<input type="radio" name="gender" value="woman" id="woman" style="zoom:1.5;"/>여성
 					</td>
 				</tr>
 				<tr>
-		        	<td>
-		        		<select name="phone1">
+		        	<td class="td">
+		        		<select name="phone1" class="select">
 		        			<option value="">선택</option>
 		        			<option value="010">010</option>
 		        			<option value="011">011</option>
@@ -339,16 +403,15 @@
 		        			<option value="052">052</option>
 		        			<option value="053">053</option>
 		        		</select>
-		        		-
+		        		<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-</span>
 		        		<input type="number" name="phone2" placeholder="전화번호" class="ptxt">
-		        		-
+		        		<span>-</span>
 		        		<input type="number" name="phone3" class="ptxt">
 		        	</td>
 				</tr>
 				<tr>
-			        <td>
-			        	<input type="text" name="txtEmail1" placeholder="이메일" class="etxt" maxlength="40" id="txtEmail1">
-			        	@
+			        <td style="width: 550px;">
+			        	<input type="text" name="txtEmail1" placeholder="이메일" class="etxt" maxlength="40" id="txtEmail1">@
 			        	<input type="text" name="txtEmail2" placeholder="직접입력" class="etxt" maxlength="40" id="txtEmail2">
 			        	<select name="selectEmail" id="selectEmail">
 			        		<option value="user">직접입력</option>
@@ -361,20 +424,25 @@
 				</tr>
 	
 				<tr>
-					<td><input type="checkbox" name="" class="check" id="check1"/>14세 이상 </td>
+					<td class="td"><input type="checkbox" name="" class="check" id="check1"/><span class="checkspan">14세 이상</span></td>
 				</tr>
 				
 				<tr>
-					<td><input type="checkbox" name="" class="check" id="check2"/>이용약관 </td>
+					<td class="td"><input type="checkbox" name="" class="check" id="check2"/><span class="checkspan">이용약관</span></td>
 				</tr>
 				
 				<tr>
-					<td><input type="checkbox" name="" class="check" id="check3"/>개인정보 취급방침 </td>
+					<td class="td"><input type="checkbox" name="" class="check" id="check3"/><span class="checkspan">개인정보 취급방침</span></td>
 				</tr>
-			
-	
 				<tr>
-		        	<td><input type="button" value="회원가입 완료" id="submit"></td>
+					<th>
+						<div id="submit">
+							<span>가입하기</span>
+						</div>
+					</th>
+		<!-- 		div로 바꾸기 전 코드        
+		<td class="td"><input type="button" value="회원가입 완료" id="submit"></td>
+		-->
 		        </tr>
 			</table>
 	    </form>

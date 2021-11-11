@@ -223,32 +223,32 @@ body > div.container2{
             <img src="../images/puppy.jpg" alt="">
         </div>
         <div class="product_view">	<!-- db에서 값 가져오기 -->
-            <h2></h2>
+            <h2>RF85A911126</h2>
             <table>
                 <tbody>
                 <tr>
-                    <th></th>
-                    <td class="price"></td>
+                    <th>판매가</th>
+                    <td class="price">2,081,390</td>
                 </tr>
                 <tr>
-                    <th></th>
-                    <td></td>
+                    <th>모델명</th>
+                    <td>RS84T5071SL</td>
                 </tr>
                 <tr>
-                    <th></th>
-                    <td></td>
+                    <th>출시연월</th>
+                    <td>2020-03</td>
                 </tr>
                 <tr>
-                    <th></th>
-                    <td></td>
+                    <th>용량</th>
+                    <td>846L</td>
                 </tr>
                 <tr>
-                    <th></th>
-                    <td></td>
+                    <th>도어</th>
+                    <td>2도어</td>
                 </tr>
                 <tr>
-                    <th></th>
-                    <td></td>
+                    <th>제품정보</th>
+                    <td>탁월한 성능과 슬림 스타일로 실속만점 주방을 완성하다</td>
                 </tr>
                 </tbody>
             </table>

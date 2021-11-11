@@ -30,7 +30,7 @@
 	            url: "recentlyViewedItemsOk.jsp", 
 	            dataType: "html", 
 	            data:{"pno":pno, "pname":pname, "imgfile":imgfile}, 
-	            success:function(response, status, request){
+	            success:function(response, status, request, data){
 // 	               console.log(response.trim());
 	            },
 	

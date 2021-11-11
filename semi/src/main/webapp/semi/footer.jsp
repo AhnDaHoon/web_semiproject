@@ -6,6 +6,8 @@
 </script>
 <style>
 	*{
+		font-size: 25px;
+		font-family: "야놀자 야체";
 		margin: 0px;
 		padding: 0px;
 	}
@@ -19,6 +21,7 @@
 	body {
 		margin:0;
 		min-height: 100%;
+		overflow-y:scroll; 
 	}
 	
 	.footer {
@@ -27,10 +30,9 @@
 		padding: 15px;
 		text-align: center;
 		height: 120px;
-		color: white;
-		background: black;
 		width: 1770px;
 		min-width: 1770px;
+		border-top: 2px solid rgba(128,128,128,0.5);
 	}
 	
 	.aclass{
@@ -53,7 +55,7 @@
 	}
 	
 	.before{	/* 앱솔로 하단에 줘야하는지 컨텐츠 다음에 와야하는지 확인 필요 */
-		height: 240px;
+		height: 300px;
 	}
 
 </style>

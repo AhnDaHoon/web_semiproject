@@ -77,7 +77,32 @@
 		width: 300px;
 		height: 300px;
 	}
+	
+	/* 더보기 기능 css */
+     .show-more {
+          display: none;
+          cursor: pointer;
+      }
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+/* 더보기 기능 javascript */	
+   $(document).ready(function() { 
+	  /*  console.log("콘솔 테스트"); */
+     if ($('.analysis').length > 2) {
+     // gt(n)은 해당번째(n) 다음 요소들에 스터알이나 동작이 적용
+     // gt(0)이면 첫번째 다음번째, 즉 2,3,4, 번쨰 요소들을 가르킨다.
+      $('.analysis:gt(0)').hide();
+      $('.show-more').show();
+      }
+
+      $('.show-more').on('click', function() {
+      $('.analysis:gt(0)').toggle();
+      //눌렀을때 텍스트 바꾸기
+      $(this).text() === '▼더보기▼' ? $(this).text('▲닫기▲') : $(this).text('▼더보기▼');
+      });      
+  	});
+</script>
 </head>
 <body>
 <div class="whole">
@@ -87,7 +112,7 @@
 	<div id="container">
 		<div class="divclass">
 			<div id="imgdiv">
-				<img src="../images/computer1.png" alt="" />
+				<img src="../images/monitor.png" alt="" />
 			</div>
 			<div id="rightdiv">
 				<h2>브랜드명</h2> <br />
@@ -105,7 +130,7 @@
 			<span>해상도</span>
 			<span>크기</span>
 		</div>
-		<div id="analysisdiv">
+		<div id="analysisdiv" class="wrapper">
 				<h1>스펙분석</h1>
 				<div class="analysis">
 				<h2>1. 가격 : 보통</h2>
@@ -116,6 +141,25 @@
 					② 동급인 '750~950ℓ 수준의 대형 냉장고' 중에서는(도) 용량 대비 가격대가 저렴한 편입니다.
 				</p> <br />
 				</div>
+		
+		 <!-- 더보기 기능 -->
+         <div class="show-more">▼더보기▼</div>		
+			
+				<div class="analysis">
+				<h2>2. 화질 : 좋음</h2>
+				<p>TV종류 : 존나좋은 TV <br />
+					LCD 패널에 나노셀 처리가 된 제품으로 일반 LCD TV 대비 색재현력, 밝기, 시야각 등의 화질이 더 좋은 제품입니다. <br />
+				</p> <br />
+				
+				</div>
+				
+				<div class="analysis">
+				<h2>2. 화질 : 좋음</h2>
+				<p>TV종류 : 존나좋은 TV <br />
+					LCD 패널에 나노셀 처리가 된 제품으로 일반 LCD TV 대비 색재현력, 밝기, 시야각 등의 화질이 더 좋은 제품입니다. <br />
+				</p> <br />
+				
+				</div>
 				
 				<div class="analysis">
 				<h2>2. 화질 : 좋음</h2>
@@ -125,7 +169,7 @@
 				
 				</div>
 		</div>
-		<div id="recomdiv">
+		<div id="recomdiv" class="analysis" >
 			<h2>이런 제품은 어떠신가요?</h2>
 			<img src="../images/computer1.png" alt="" class="recomimg"/>
 			<img src="../images/computer1.png" alt="" class="recomimg"/>

@@ -225,6 +225,24 @@ public class TongDAO {
 		}
 	}
 	
+	public void deleteId(String id) {
+		sb.setLength(0); 
+		sb.append("DELETE FROM tong_member ");
+		sb.append("WHERE id = ? ");
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sb.toString());
+			pstmt.setString(1, id);
+
+			pstmt.executeUpdate();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+		}
+	}
+	
 	
 	
 }// class end

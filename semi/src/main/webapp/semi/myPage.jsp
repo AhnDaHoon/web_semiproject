@@ -4,12 +4,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>myPage</title>
+<title>마이페이지</title>
 <style>
 	.whole{
 		width: 1800px;
 		min-width: 1800px;
 		margin: 0 auto;
+	}
+	*{
+		font-size: 25px;
+		font-family: "야놀자 야체";
 	}
 	.container {
 		text-align: center;
@@ -22,10 +26,20 @@
 	}
 	
 	.myPage>a{
-		display: block;
-		margin: 20px;
+		display: inline-block;
+		margin: 30px;
+		text-decoration: none;
+		color: black;
 	}
-
+    .hdiv{
+    	margin: 0 auto;
+    	width: 460px;
+    	margin-bottom: 50px;
+    }
+    h1{
+    	font-size: 50px;
+    	border-bottom: 2px solid silver;
+    }
 </style>
 </head>
 <body>
@@ -33,12 +47,15 @@
 	<jsp:include page="header.jsp"></jsp:include>
 
 	<div class="container">
+		<div class="hdiv">
+			<h1>마이페이지</h1>
+		</div>
 		<div class="myPage">
-			<a href="">정보수정</a><br />
+			<a href="myInfo.jsp">정보수정</a><br />
 			<a href="">문의내역</a><br />
 			<a href="">의견 보내기</a><br />
 			<a href="">공지사항(부가)</a><br />
-			<a href="">설정</a>
+			<a href="setting.jsp">설정</a>
 		</div>
 	</div>
 

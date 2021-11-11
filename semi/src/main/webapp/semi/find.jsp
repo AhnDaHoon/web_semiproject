@@ -34,6 +34,10 @@
 
 
 <style>
+	*{
+		font-size: 25px;
+		font-family: "야놀자 야체";
+	}
 	.whole{
 		width: 1800px;
 		min-width: 1800px;
@@ -42,38 +46,60 @@
 
     #container {
     	position:relative;
-        top: 100px;
+        top: 50px;
     }
 
     #boxId {
-        width: 500px;
+        width: 400px;
         height: 100px;
-        padding: 20px 20px;
+        padding: 20px;
         border: 3px solid black;
         text-align: center;
         margin: 0 auto;
-        margin-bottom: 20px;
+        margin-bottom: 200px;
+        border-radius: 10px;
     }
 
     #boxPw {
-        width: 500px;
+        width: 400px;
         height: 100px;
-        padding: 20px 20px;
+        padding: 20px;
         border: 3px solid black;
         text-align: center;
         margin: 0 auto;
+        border-radius: 10px;
     }
 
-    #name, #phone, #findid, #id, #email, #findpw {
-        margin: 5px 5px;
+    .btn{
+    	position: relative;
+    	top: 50px;
+    	background: white;
+    	color: black;
+    	border-radius: 5px;
+    	width: 120px;
+    	cursor: pointer;
     }
-
-    .button {
-        text-align: right;
+    #id{
+    	margin-top: 10px;
+    	margin-bottom: 20px;
+    	padding-left: 10px;
     }
-
-    .txt {
-        width: 200px;
+    #name{
+   	 	margin-top: 10px;
+    	margin-bottom: 20px;
+    	padding-left: 10px;
+    }
+    #phone, #email{
+    	padding-left: 10px;
+    }
+    .hdiv{
+    	margin: 0 auto;
+    	width: 460px;
+    	margin-bottom: 50px;
+    }
+    h1{
+    	font-size: 50px;
+    	border-bottom: 2px solid silver;
     }
 </style>
 </head>
@@ -82,19 +108,25 @@
 	<jsp:include page="header.jsp"></jsp:include>
 
 	<div id="container">
+		<div class="hdiv">
+			<h1>아이디 찾기</h1>
+		</div>
 		<div id="boxId">
 			<form action="" id="formid">
 				<input type="text" name="uname" id="name" placeholder="이름"/><br>
-				<input type="text" name="HP" id="phone" placeholder="전화번호 (- 포함)"/><p>-</p><br>
-				<input type="button" value="아이디 찾기" id="findid"/>
+				<input type="text" name="HP" id="phone" placeholder="전화번호"/><br>
+				<input type="button" value="아이디 찾기" id="findid" class="btn"/>
 			</form>
 		</div>
 		
+		<div class="hdiv">
+			<h1>비밀번호 찾기</h1>
+		</div>
 		<div id="boxPw">
 			<form action="" id="formpw">
 				<input type="text" name="id" id="id" placeholder="아이디"/><br>
 				<input type="text" name="email" id="email" placeholder="이메일"/><br>
-				<input type="button" value="아이디 찾기" id="findpw"/>
+				<input type="button" value="비밀번호 찾기" id="findpw" class="btn"/>
 			</form>
 		</div>
 	</div>
