@@ -1,11 +1,22 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="dao.TVDAO"%>
+<%@page import="vo.TvVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>통하다 :: 하나로 통하다</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+// 	$(function(){
+// 		$("#gosearch1").on("click", function(){
+			
+// 		})
+// 	})
+</script>
+
 <style>
 	.whole{
 		width: 1800px;
@@ -20,25 +31,37 @@
 
 	#logodiv{
 		margin: 0 auto;
+		height: 200px;
 	}
 	
 	#logo{
-		width: 180px;
-		height: 180px;
+		width: 300px;
+		height: 300px;
 	}
 	
 	#clickdiv{
-		margin: 50px;
+		margin: 0 auto;
+		position: relative;
+		right: -130px;
+		top: -130px;
+	}
+	
+	#clickdiv img {
+		width: 300px;
+		height: 200px;
 	}
 	
 	#main{
-		width:700px;
-		height:400px;
-		border:1px solid black;
-		background-color:yellow;
+		width:1200px;
+		height:700px;
 		position: relative;
 		margin: 0 auto;
-		margin-top: 50px;
+		margin-top: 120px;
+	}
+	
+	#main img {
+		width: 1200px;
+		height: 800px;
 	}
 	
 	#gosearch1:hover {
@@ -55,6 +78,48 @@
 </style>
 </head>
 <body>
+<%
+	TVDAO tdao = new TVDAO();
+	ArrayList<TvVO> tvoArr = tdao.getAll();
+	
+	if(tvoArr != null){
+		session.setAttribute("tvoArr", tvoArr);
+		session.setAttribute("tvoArrSecond", tvoArr);
+	}
+	// 데이터가 정상적으로 있는지 확인 후 세션으로 넘기기
+// 	for(TvVO x: tvoArr){
+// 		out.println("<h1>"+ x.getPno() +"</h1>");
+// 		out.println("<h1>"+ x.getCode() +"</h1>");
+// 		out.println("<h1>"+ x.getPname() +"</h1>");
+// 		out.println("<h1>"+ x.getPdesc() +"</h1>");
+// 		out.println("<h1>"+ x.getBrand() +"</h1>");
+// 		out.println("<h1>"+ x.getPrice() +"</h1>");
+// 		out.println("<h1>"+ x.getRegdate() +"</h1>");
+// 		out.println("<h1>"+ x.getEnergy() +"</h1>");
+// 		out.println("<h1>"+ x.getImgfile() +"</h1>");
+// 		out.println("<h1>"+ x.getPsize() +"</h1>");
+// 		out.println("<h1>"+ x.getPixel() +"</h1>");
+// 		out.println("<h1>"+ x.getCodename() +"</h1>");
+// 	}
+	
+// 	Object tvoObj = session.getAttribute("tvoArr");
+// 	ArrayList<TvVO> tvoArr2 = (ArrayList<TvVO>) tvoObj;
+// 	for(TvVO x: tvoArr2){
+// 		out.println("<h1>tvoArr2</h1>");
+// 		out.println("<h1>"+ x.getPno() +"</h1>");
+// 		out.println("<h1>"+ x.getCode() +"</h1>");
+// 		out.println("<h1>"+ x.getPname() +"</h1>");
+// 		out.println("<h1>"+ x.getPdesc() +"</h1>");
+// 		out.println("<h1>"+ x.getBrand() +"</h1>");
+// 		out.println("<h1>"+ x.getPrice() +"</h1>");
+// 		out.println("<h1>"+ x.getRegdate() +"</h1>");
+// 		out.println("<h1>"+ x.getEnergy() +"</h1>");
+// 		out.println("<h1>"+ x.getImgfile() +"</h1>");
+// 		out.println("<h1>"+ x.getPsize() +"</h1>");
+// 		out.println("<h1>"+ x.getPixel() +"</h1>");
+// 		out.println("<h1>"+ x.getCodename() +"</h1>");
+// 	}
+%>
 <div class="whole">
 	<div class="container">
 		<!-- 로고이미지 위치  -->
@@ -63,11 +128,11 @@
 		</div>
 		<!-- 홈페이지 간략 설명&이미지  -->
 		<div id="main">
-			<img src="" alt="" />
+			<img src="../images/main.gif" alt="" />
 		</div>
 		<!-- 비교하러가기 배너  -->
 		<div id="clickdiv">
-			<a href="search1.jsp"><img src="../images/puppy.jpg" alt="" id="gosearch1" /></a> 
+			<a href="search1.jsp"><img src="../images/ment.png" alt="" id="gosearch1" /></a> 
 		</div>
 	</div>
 	

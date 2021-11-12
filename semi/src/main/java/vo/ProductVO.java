@@ -19,5 +19,6 @@ public class ProductVO {
 	String imgfile;
 	int psize;
 	int pixel;
+	String codename;
 
 }

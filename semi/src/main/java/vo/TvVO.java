@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class TvVO {
 
 	int pno;
-	String code;
+	int code;
 	String pname;
 	String pdesc;
 	String brand;
@@ -19,7 +19,7 @@ public class TvVO {
 	int energy;
 	String imgfile;
 	int psize;
-	int pixel;
+	String pixel;
 	String codename;
 	
 }

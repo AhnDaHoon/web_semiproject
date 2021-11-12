@@ -1,3 +1,4 @@
+<%@page import="vo.TvVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -95,13 +96,78 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
 	$(function(){
+		var energyArr = [];
+		var brandArr = [];
+		var psizeArr = [];
 		$(".optionclass").on("click", function(){
-			console.log($(this).text());
+// 			console.log($(this).text());
 			
-			// searchTVOk.jsp에 id 값을 넘겨
-			console.log($(this).attr("name"));
+			// searchTVOk.jsp에 id 값을 넘겨줌
+// 			console.log($(this).attr("name"));
 			
+			// 클릭한 옵션 배열에 담기
+			if($(this).attr("name") <= 5){
+				energyArr.push($(this).attr("name"));				
+			}else if($(this).attr("name") == 'energyreset'){
+				energyArr.push($(this).attr("name"));
+			}else if($(this).attr("name") == '삼성' || $(this).attr("name") == 'LG' || $(this).attr("name") == '샤오미'){
+				brandArr.push($(this).attr("name"));
+			}else if($(this).attr("name") == 'brandreset'){
+				brandArr = [];
+			}else if($(this).attr("name") >= 39){
+				psizeArr.push($(this).attr("name"));
+			}else if($(this).attr("name") == 'psizereset'){
+				psizeArr = [];
+			}
+			
+// 			console.log(energyArr);
+// 			console.log(brandArr);
+// 			console.log(psizeArr);
+			
+			// 중복제거
+			var energySet = new Set(energyArr);
+			var brandSet = new Set(brandArr);
+			var psizeSet = new Set(psizeArr);
+// 			console.log(energySet);
+// 			console.log(brandSet);
+// 			console.log(psizeSet);
+			
+			
+
+			// set타입을 searchTVOk.jsp에 보냈으나 데이터가 안읽혀서 다른 배열로 옮겨담음
+			var energyArr2 = Array.from(energySet);
+			var brandArr2 = Array.from(brandSet);
+			var psizeArr2 = Array.from(psizeSet);
+			
+// 			map형식{"키", 값}
+			$.ajax({
+	            type:"POST",
+	            async: true, 
+	            url: "searchTVOk.jsp", 
+	            traditional : true, // 배열로 받겠다.
+	            dataType: "html", 
+	            data:{"energyArr2":energyArr2, "brandArr2":brandArr2, "psizeArr2":psizeArr2}, 
+	            success:function(response, status, request, data){
+	            	console.log(response.trim());
+	            	location.reload();
+	               
+	            },
+	            error: function(response, status, request){
+	            	console.log(response.trim());
+	                console.log("에러");
+	            },
+	       
+	            complete: function(){
+	            	console.log("Ajax통신 끝");
+	            	
+	            },
+	   
+	            beforeSend: function(){
+	            }
+	
+			});
 		})
+		
 		
 	})
 
@@ -119,31 +185,31 @@
 			<div id="tablediv">
 				<table id="optiontable">
 					<tr class="option">
-						<th class="thclass">검색사항1</th>
-						<th class="optionclass">전체</th>
-						<th class="optionclass" name ="energy">옵션1</th>
-						<th class="optionclass" name ="psize">옵션2</th>
-						<th class="optionclass">옵션3</th>
+						<th class="thclass">에너지소비효율등급</th>
+						<th class="optionclass" name ="energyreset">전체</th>
+						<th class="optionclass" name ="1">1등급</th>
+						<th class="optionclass" name ="2">2등급</th>
+						<th class="optionclass" name ="3">3등급</th>
+						<th class="optionclass" name ="4">4등급</th>
+						<th class="optionclass" name ="5">5등급</th>
+					</tr>
+					<tr class="option">
+						<th class="thclass">브랜드</th>
+						<th class="optionclass" name ="brandreset">전체</th>
+						<th class="optionclass" name ="삼성">삼성</th>
+						<th class="optionclass" name ="LG">LG</th>
+						<th class="optionclass" name ="샤오미">샤오미</th>
 						<th class="optionclass">옵션4</th>
 						<th class="optionclass">옵션5</th>
 					</tr>
 					<tr class="option">
-						<th class="thclass">검색사항2</th>
-						<th class="optionclass">전체</th>
-						<th class="optionclass">옵션1</th>
-						<th class="optionclass">옵션2</th>
-						<th class="optionclass">옵션3</th>
-						<th class="optionclass">옵션4</th>
-						<th class="optionclass">옵션5</th>
-					</tr>
-					<tr class="option">
-						<th class="thclass">검색사항3</th>
-						<th class="optionclass">전체</th>
-						<th class="optionclass">옵션1</th>
-						<th class="optionclass">옵션2</th>
-						<th class="optionclass">옵션3</th>
-						<th class="optionclass">옵션4</th>
-						<th class="optionclass">옵션5</th>
+						<th class="thclass">크기</th>
+						<th class="optionclass" name ="psizereset">전체</th>
+						<th class="optionclass" name ="39">40인치 이하</th>
+						<th class="optionclass" name ="49">40~49인치</th>
+						<th class="optionclass" name ="59">50~59인치</th>
+						<th class="optionclass" name ="69">60~69인치</th>
+						<th class="optionclass" name ="200">70인치 이상</th>
 					</tr>
 					<tr class="option">
 						<th class="thclass">검색사항4</th>
@@ -177,6 +243,32 @@
 					<input type="button" value="비교함에 넣기" id="btn" />
 				</div>
 			</div>
+			
+			<%
+			Object tvoObj = session.getAttribute("tvoArr");
+			ArrayList<TvVO> tvoArr = (ArrayList<TvVO>) tvoObj;
+			if(tvoArr != null ){
+				for(TvVO x: tvoArr){
+					
+	// 				out.println("<h1 id='lineh1'></h1>");
+					out.println("<div class='divclass'>");
+					out.println("<div id='imgdiv'>");
+					out.println("<img src='" + x.getImgfile() + "' alt='' />");
+					out.println("</div>");
+					out.println("<div id='rightdiv'>");
+						out.println("<h2>"+ x.getPname() +"</h2> <br />");
+						out.println("<h2>"+ x.getPdesc() +"</h2> <br />");
+						out.println("<h2>디비내용2</h2>");
+						out.println("<input type='button' value='비교함에 넣기' id='btn' />");
+					out.println("</div>");
+				}
+				
+			}else{
+				out.println("<h1>asd</h1>");
+				
+			}
+			
+			%>
 		</div>
 		
 		<jsp:include page="recentside.jsp"></jsp:include>
