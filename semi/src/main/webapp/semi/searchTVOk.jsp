@@ -98,7 +98,7 @@
 			
 			
 		}else if(energy == "null"){
-			
+			System.out.println("energy:  "+energy);
 		} 
 		
 	
@@ -153,10 +153,11 @@
 			if(brandArr.size() == 0){
 				session.setAttribute("tvoArr", tvoArr);
 				session.setAttribute("brandArr", brandArr);
-				return;
+// 				return;
 			}
 		}else if(brand == "null"){
-	
+			System.out.println("brand:  "+brand);
+
 		}
 		
 		
@@ -164,7 +165,7 @@
 		
 		
 		/////////////////////////////////////////////////////////////////////////////////////////
-		// brand
+		// psize
 		String psizeTemp = null;
 		if(psize != "null"){
 			if(psize.equals("psizereset")){
@@ -192,26 +193,33 @@
 				psizeArr.remove(Integer.parseInt(psizeTemp));		
 			}
 			
-			
+			System.out.println("5: "+psizeArr);
 			for(TvVO x: tvoArr){
 				for(String y: psizeArr){		
 					if(Integer.parseInt(y) == 39 && x.getPsize() <= 39 ){
 						System.out.println(y);
 						choiceTvoArr.add(x);
+						continue;
 						
 					}else if(Integer.parseInt(y) == 49 && x.getPsize() <= 49 && x.getPsize() >= 40){
 						System.out.println("49:  "+y);
 						choiceTvoArr.add(x);
+						continue;
 						
 					}else if(Integer.parseInt(y) == 59 && x.getPsize() <= 59  && x.getPsize() >= 50){
 						System.out.println("59:  "+y);
 						choiceTvoArr.add(x);
+						continue;
+						
 					}else if(Integer.parseInt(y) == 69 && x.getPsize() <= 69  && x.getPsize() >= 60){
 						System.out.println("69:  "+y);
 						choiceTvoArr.add(x);
+						continue;
+						
 					}else if(Integer.parseInt(y) == 200 && x.getPsize() <= 70){
 						System.out.println("200:  "+y);
 						choiceTvoArr.add(x);
+						continue;
 					}
 
 				}
@@ -227,7 +235,7 @@
 				return;
 			}
 		}else if(psize == "null"){
-	
+			System.out.println("psize:  "+psize);
 		}
 	}catch(NullPointerException e){
 		System.out.println(e);
