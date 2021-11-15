@@ -25,7 +25,7 @@
 	if(request.getParameter("psize") == null){
 		psize = "null";	
 	}else if(request.getParameter("psize") != null){
-		psize = psize = request.getParameter("psize");
+		psize = request.getParameter("psize");
 	}
 	
 	
