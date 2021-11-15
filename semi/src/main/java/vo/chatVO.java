@@ -11,4 +11,5 @@ public class chatVO {
 	String id;
 	String content;
 	int cno;
+	int status;
 }

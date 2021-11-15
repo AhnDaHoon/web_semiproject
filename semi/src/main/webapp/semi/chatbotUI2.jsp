@@ -8,65 +8,184 @@
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
+	
+
+	var chatupdatenum = 0;
+	
+	
+	function chatfirstupdate(){
+		
+		
+    	// 부모 속성
+	  	var tagArea = $('#chatbottext')[0];
+    	
+		 // 새로만들 자식 속성
+	  	var new_Userimg = $("<img id='userchatavatar' src='../images/ball6.png' alt='' />")[0];
+		var new_UserpTag  = $("<p class='userchattext'></p>")[0];
+		
+	  	var new_CounselorImg = $("<img id='counselorchatavatar' src='../images/ball15.png' alt='' />")[0];
+		var new_CounselorpTag  = $("<p class='counselorchattext'></p>")[0];
+		
+		$.ajax({
+            type:"POST",
+            async: true, 
+            url: "chatbotBack.jsp", 
+            dataType: "html", 
+            data:{"text":$("#input").val()}, 
+            success:function(response, status, request, data){
+            	// 아이디와 내용을 map형식으로 전달했으나 받는 방법을몰라서 문자열을 짜름
+				var tmpDate = response.trim().split(",");
+            	
+            	
+				var idArr = []
+				var contentArr = []
 
 
+				for (var i = 0; i < tmpDate.length; i++) {
+					// idArr데이터의 첫번째 문자열이 [가 포함되어 있어서 주는 조건
+					if(i == 0) {
+						idArr.push(tmpDate[i].substr(1,tmpDate[i].indexOf(")()(")-1).trim());
+					}else{
+						idArr.push(tmpDate[i].substr(0,tmpDate[i].indexOf(")()(")).trim());
+					}
+					// tmpDate데이터의 마지막 문자열이 ]가 포함되어 있어서 주는 조건
+					if(i == tmpDate.length-1){
+						contentArr.push(tmpDate[i].slice(tmpDate[i].indexOf(")()(")+4, -1).trim())							
+					}else{
+						contentArr.push(tmpDate[i].substr(tmpDate[i].indexOf(")()(")+4).trim())							
+					}
+//						console.log(idArr[i]);							
+//						console.log(contentArr[i]);		
+					
+
+				}
+				for (var i = 0; i < contentArr.length-1; i++) {
+					if(idArr[i] == "admin"){
+						new_CounselorpTag.innerText = contentArr[i];
+						tagArea.appendChild(new_CounselorImg.cloneNode(true));
+						tagArea.appendChild(new_CounselorpTag.cloneNode(true));
+					}else{
+						new_UserpTag.innerText = contentArr[i];
+						tagArea.appendChild(new_Userimg.cloneNode(true));
+						tagArea.appendChild(new_UserpTag.cloneNode(true));
+					}
+				}
+				$('.divscroll').scrollTop($('.divscroll')[0].scrollHeight);
+            },
+
+            error: function(response, status, request){
+                console.log("에러");
+            },
+       
+            complete: function(){
+            	console.log("Ajax통신 끝");
+            },
+   
+            beforeSend: function(){
+            }
+
+		});
+	}
+	
+	
+	function chatUpdate(){
+
+    	// 부모 속성
+	  	var tagArea = $('#chatbottext')[0];
+    	
+		 // 새로만들 자식 속성
+	  	var new_Userimg = $("<img id='userchatavatar' src='../images/ball6.png' alt='' />")[0];
+		var new_UserpTag  = $("<p class='userchattext'></p>")[0];
+		
+	  	var new_CounselorImg = $("<img id='counselorchatavatar' src='../images/ball15.png' alt='' />")[0];
+		var new_CounselorpTag  = $("<p class='counselorchattext'></p>")[0];
+		
+		$.ajax({
+            type:"POST",
+            async: true, 
+            url: "chatbotBack.jsp", 
+            dataType: "html", 
+            data:{"text":$("#input").val()}, 
+            success:function(response, status, request, data){
+            	// 아이디와 내용을 map형식으로 전달했으나 받는 방법을몰라서 문자열을 짜름
+				var tmpDate = response.trim().split(",");
+            	
+            	
+				var idArr = []
+				var contentArr = []
+
+
+				for (var i = 0; i < tmpDate.length; i++) {
+					// idArr데이터의 첫번째 문자열이 [가 포함되어 있어서 주는 조건
+					if(i == 0) {
+						idArr.push(tmpDate[i].substr(1,tmpDate[i].indexOf(")()(")-1).trim());
+					}else{
+						idArr.push(tmpDate[i].substr(0,tmpDate[i].indexOf(")()(")).trim());
+					}
+					// tmpDate데이터의 마지막 문자열이 ]가 포함되어 있어서 주는 조건
+					if(i == tmpDate.length-1){
+						contentArr.push(tmpDate[i].slice(tmpDate[i].indexOf(")()(")+4, -1).trim())							
+					}else{
+						contentArr.push(tmpDate[i].substr(tmpDate[i].indexOf(")()(")+4).trim())							
+					}
+//						console.log(idArr[i]);							
+//						console.log(contentArr[i]);		
+					
+					
+
+				}
+				if(chatupdatenum == contentArr.length){
+					console.log("ㅁㅁ");
+				}else{
+					console.log(idArr[contentArr.length-1]);
+					if(idArr[contentArr.length-1] == "admin"){
+						new_CounselorpTag.innerText = contentArr[contentArr.length-1];
+						tagArea.appendChild(new_CounselorImg);
+						tagArea.appendChild(new_CounselorpTag);
+					}else{
+						new_UserpTag.innerText = contentArr[contentArr.length-1];
+						tagArea.appendChild(new_Userimg);
+						tagArea.appendChild(new_UserpTag);
+						console.log(idArr[contentArr.length-1]);
+					}
+					chatupdatenum = contentArr.length;
+				}
+				
+            },
+
+            error: function(response, status, request){
+                console.log("에러");
+            },
+       
+            complete: function(){
+            },
+   
+            beforeSend: function(){
+            }
+
+		});
+	}
+	
+	$(document).ready(chatfirstupdate);
+	setInterval(chatUpdate, 500);
+
+		
+	
 	$(function(){
 		// 전송버튼을 눌렀을때
 	    $("#messagesend").on("click", function(){
-	    	// 부모 속성
-		  	var tagArea = $('#chatbottext')[0];
-	    	
-			 // 새로만들 자식 속성
-		  	var new_Userimg = $("<img id='userchatavatar' src='../images/ball6.png' alt='' />")[0];
-			var new_UserpTag  = $("<p class='userchattext'></p>")[0];
-			
-		  	var new_CounselorImg = $("<img id='counselorchatavatar' src='../images/ball15.png' alt='' />")[0];
-			var new_CounselorpTag  = $("<p class='counselorchattext'></p>")[0];
-			
-
-			$.ajax({
+	    	$.ajax({
 	            type:"POST",
 	            async: true, 
 	            url: "chatbotBack.jsp", 
 	            dataType: "html", 
-	            data:{"mInput":$("#input").val()}, 
+	            data:{"text":$("#input").val(), "textinput":"textinput"}, 
 	            success:function(response, status, request, data){
 	            	// 아이디와 내용을 map형식으로 전달했으나 받는 방법을몰라서 문자열을 짜름
-	            	var outValue = response.trim();
-	            	var colon = outValue.indexOf(",");
-	            	
-					var id = outValue.substr(2, colon-2);
-					console.log(id);
-					
-					var content = outValue.slice(colon+4, outValue.length-1);
-					console.log(content);
-					
-					
-					if(id == "admin"){
-						
-		                // 메세지 추가
-					  	new_CounselorpTag.innerText = content;
-					  	
-					  	// chatbottext div 자식요소로 추가
-					 	tagArea.appendChild(new_CounselorImg);
-					 	tagArea.appendChild(new_CounselorpTag);
-					 					 	
-	 	                // 전송하면 input 초기화
-	 	                $("#input").val("");
-					}else {
-		                // 메세지 추가
-					  	new_UserpTag.innerText = content;
-					  	
-					  	// chatbottext div 자식요소로 추가
-					 	tagArea.appendChild(new_Userimg);
-					 	tagArea.appendChild(new_UserpTag);
-					 					 	
-	 	                // 전송하면 input 초기화
-	 	                $("#input").val("");
-					}
-
+					var tmpDate = response.trim().split(",");
+	           
 	            },
-	
+
 	            error: function(response, status, request){
 	                console.log("에러");
 	            },
@@ -79,10 +198,17 @@
 	            }
 
 			});
-
-
+			// 전송하면 input 초기화
+			$("#input").val("");
 	    });
+		
+
+
+		
 	})
+	
+	
+	
 	
 	
 </script>
