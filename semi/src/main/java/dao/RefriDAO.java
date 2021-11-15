@@ -107,10 +107,6 @@ public class RefriDAO {
 			try {
 				conn = ds.getConnection();
 				pstmt = conn.prepareStatement(sb.toString());
-//				for(int i = 0; i < arr.size(); i++) {
-//					pstmt.setString(i+1, arr.get(i));					
-//				}
-
 				rs = pstmt.executeQuery();
 				
 				while(rs.next()) {
@@ -140,46 +136,4 @@ public class RefriDAO {
 			
 		}
 		
-		// 배열 길이가 0이면 다 리턴
-//		sb.setLength(0);
-//		sb.append("SELECT pno, code, pname, pdesc, brand, price, regdate, energy, imgfile, door, volume, codename, codename2, aaaa ");
-//		sb.append("FROM(SELECT pno, code, pname, pdesc, brand, price, regdate, energy, imgfile, door, volume, codename, codename2, aaaa ");
-//		sb.append("    FROM (SELECT pno, code, pname, pdesc, brand, price, regdate, energy, imgfile, door, volume, codename, codename2, aaaa ");
-//		sb.append("        FROM (SELECT pno, code, pname, pdesc, brand, price, regdate, energy, imgfile, door, volume, codename, codename2, aaaa ");
-//		sb.append("            FROM refri ");
-//		sb.append("            WHERE energy = 1 or energy = 2 or energy = 3) ");
-//		sb.append("        WHERE brand = '삼성' OR brand = 'LG')  ");
-//		sb.append("    WHERE door = 1 OR door = 2) ");
-//		sb.append("WHERE aaaa = '1'; ");
-//				
-//		try {
-//			conn = ds.getConnection();
-//			pstmt = conn.prepareStatement(sb.toString());
-//			rs = pstmt.executeQuery();
-//			
-//			while(rs.next()) {
-//				int pno = rs.getInt("pno");
-//				int code = rs.getInt("code");
-//				String pname = rs.getString("pname");
-//				String pdesc = rs.getString("pdesc");
-//				String brand = rs.getString("brand");
-//				int price = rs.getInt("price");
-//				String regdate = rs.getString("regdate");
-//				int energy = rs.getInt("energy");
-//				String imgfile = rs.getString("imgfile");
-//				int door = rs.getInt("door");
-//				int volume = rs.getInt("volume");
-//				String codename = rs.getString("codename");
-//				String codename2 = rs.getString("codename2");
-//				String aaaa = rs.getString("aaaa");
-//				
-//				RefriVO vo = new RefriVO(pno, code, pname, pdesc, brand, price, regdate, energy, imgfile, door, volume, codename, codename2, aaaa);
-//				list.add(vo);
-//			}
-//			conn.close();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		return list;
-//	}
 }

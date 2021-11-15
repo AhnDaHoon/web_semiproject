@@ -100,6 +100,7 @@
 		var energy;
 		var brand;
 		var door;
+		var doorreset
 		$(".optionclass").on("click", function(){
 // 			console.log($(this).text());
 			
@@ -118,7 +119,7 @@
 			}else if($(this).attr("name") == '1개' || $(this).attr("name") == '2개' || $(this).attr("name") == '3개' || $(this).attr("name") == '4개'){
 				door = $(this).attr("name");
 			}else if($(this).attr("name") == 'doorreset'){
-				door = 'psizereset';
+				doorreset = 'doorreset';
 			}
 
 			$.ajax({
@@ -126,7 +127,7 @@
 	            async: true, 
 	            url: "searchRefriOk.jsp", 
 	            dataType: "html", 
-	            data:{"energy":energy, "brand":brand, "door":door}, 
+	            data:{"energy":energy, "brand":brand, "door":door, "doorreset":doorreset}, 
 	            success:function(response, status, request, data){
 // 	            	console.log(response.trim());
 	            	location.reload();
@@ -176,7 +177,7 @@
 					</tr>
 					<tr class="option">
 						<th class="thclass">브랜드</th>
-						<th class="optionclass" name ="'brandreset'">전체</th>
+						<th class="optionclass" name ="brandreset">전체</th>
 						<th class="optionclass" name ="'SAMSUNG'">삼성전자</th>
 						<th class="optionclass" name ="'LG'">LG</th>
 						<th class="optionclass" name ="'CARRIER'">캐리어</th>

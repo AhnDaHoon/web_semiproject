@@ -4,10 +4,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-
 	String pEnergy = null;
 	String pBrand = null;
 	String pDoor = null;
+	
+	Object energyObj = session.getAttribute("energyArr");
+	Object brandObj = session.getAttribute("brandArr");
+	Object doorObj = session.getAttribute("doorArr");
+		
+	ArrayList<String> energyArr = (ArrayList<String>)energyObj;
+	ArrayList<String> brandArr = (ArrayList<String>)brandObj;
+	ArrayList<String> doorArr = (ArrayList<String>)doorObj;
 	if(request.getParameter("energy") != null){
 		pEnergy = request.getParameter("energy");
 	}else if(request.getParameter("brand") != null){
@@ -22,28 +29,27 @@
 		}else if(request.getParameter("door").equals("4개")){
 			pDoor = "4";	
 		}
+	}else if(request.getParameter("doorreset").equals("doorreset")){
+		doorArr.clear();
 	}
-
-	Object energyObj = session.getAttribute("energyArr");
-	Object brandObj = session.getAttribute("brandArr");
-	Object doorObj = session.getAttribute("doorArr");
-		
 	
-
 // 	System.out.println(pEnergy);
 // 	System.out.println(pBrand);
 // 	System.out.println(pDoor);
-
+	if(pEnergy != null && pEnergy.equals("energyreset")){
+		energyArr.clear();
+	}else if(pBrand != null && pBrand.equals("brandreset")){
+		brandArr.clear();
+	}
 	
 //////////////////////////////////////////////////////////////////////////
 	// 에너지
-	ArrayList<String> energyArr = (ArrayList<String>)energyObj;
 	String energyTemp = null;
 	String energyVal = " ";
 	
 	// 똑같은걸 클릭했을때 삭제
 	int energyIndex = energyArr.indexOf(pEnergy);
-	if(pEnergy != null && energyIndex == -1){
+	if(pEnergy != null && energyIndex == -1 && !pEnergy.equals("energyreset")){
 		energyArr.add(pEnergy);		
 	}else if(energyIndex != -1 ){
 		energyArr.remove(energyIndex);
@@ -66,12 +72,11 @@
 	
 	
 	// 브랜드
-	ArrayList<String> brandArr = (ArrayList<String>)brandObj;
 	String brandTemp = null;
 	String brandVal = " ";
 	
 	int brandIndex = brandArr.indexOf(pBrand);
-	if(pBrand != null && brandIndex == -1){
+	if(pBrand != null && brandIndex == -1 && !pBrand.equals("brandreset")){
 		brandArr.add(pBrand);		
 	}else if(brandIndex != -1 ){
 		brandArr.remove(brandIndex);
@@ -93,10 +98,9 @@
 	
 	
 	// 도어
-	ArrayList<String> doorArr = (ArrayList<String>)doorObj;
 	String doorVal = " ";
 	int doorIndex = doorArr.indexOf(pDoor);
-	if(pDoor != null && doorIndex == -1){
+	if(pDoor != null && doorIndex == -1 && !pDoor.equals("doorreset")){
 		doorArr.add(pDoor);		
 	}else if(doorIndex != -1 ){
 		doorArr.remove(doorIndex);
@@ -116,7 +120,6 @@
 	System.out.println("doorArr:      "+doorArr);
 	System.out.println("pDoor:      "+pDoor);
 	
-
 	
 	RefriDAO dao = new RefriDAO();
 	ArrayList<RefriVO> refriArr = dao.searchEa(energyVal, brandVal, doorVal);
@@ -127,7 +130,6 @@
 // 	System.out.println(doorVal);
 // 	for(RefriVO x: refriArr){
 // 		System.out.println(x.getPname());
-
 	session.setAttribute("tvoArr", refriArr);
 	session.setAttribute("energyArr", energyArr);
 	session.setAttribute("brandArr", brandArr);
@@ -136,6 +138,4 @@
 	
 	
 	
-
-
 %>
