@@ -1,3 +1,5 @@
+<%@page import="dao.RefriDAO"%>
+<%@page import="vo.RefriVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="dao.TVDAO"%>
 <%@page import="vo.TvVO"%>
@@ -79,18 +81,19 @@
 </head>
 <body>
 <%
-	TVDAO tdao = new TVDAO();
-	ArrayList<TvVO> tvoArr = tdao.getAll();
+	RefriDAO  dao = new RefriDAO();
+	ArrayList<RefriVO> tvoArr = dao.getAll();
+	
 	ArrayList<String> energyArr = new ArrayList<String>();
 	ArrayList<String> brandArr = new ArrayList<String>();
-	ArrayList<String> psizeArr = new ArrayList<String>();
+	ArrayList<String> doorArr = new ArrayList<String>();
 	
 	if(tvoArr != null){
 		session.setAttribute("tvoArr", tvoArr);
-		session.setAttribute("tvoArrSecond", tvoArr);
 		session.setAttribute("energyArr", energyArr);
 		session.setAttribute("brandArr", brandArr);
-		session.setAttribute("psizeArr", psizeArr);
+		session.setAttribute("doorArr", doorArr);
+
 		
 	}
 	// 데이터가 정상적으로 있는지 확인 후 세션으로 넘기기
