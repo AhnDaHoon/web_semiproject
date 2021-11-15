@@ -96,9 +96,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
 	$(function(){
-		var energyArr = [];
-		var brandArr = [];
-		var psizeArr = [];
+		var energy;
+		var brand;
+		var psize;
 		$(".optionclass").on("click", function(){
 // 			console.log($(this).text());
 			
@@ -106,49 +106,28 @@
 // 			console.log($(this).attr("name"));
 			
 			// 클릭한 옵션 배열에 담기
-			if($(this).attr("name") <= 5){
-				energyArr.push($(this).attr("name"));				
+			if($(this).attr("name") <= 6){
+				energy = $(this).attr("name");				
 			}else if($(this).attr("name") == 'energyreset'){
-				energyArr.push($(this).attr("name"));
+				energy = 'energyreset';			
 			}else if($(this).attr("name") == '삼성' || $(this).attr("name") == 'LG' || $(this).attr("name") == '샤오미'){
-				brandArr.push($(this).attr("name"));
+				brand = $(this).attr("name");
 			}else if($(this).attr("name") == 'brandreset'){
-				brandArr = [];
+				brand = 'brandreset';
 			}else if($(this).attr("name") >= 39){
-				psizeArr.push($(this).attr("name"));
+				psize = $(this).attr("name");
 			}else if($(this).attr("name") == 'psizereset'){
-				psizeArr = [];
+				psize = 'psizereset';
 			}
-			
-// 			console.log(energyArr);
-// 			console.log(brandArr);
-// 			console.log(psizeArr);
-			
-			// 중복제거
-			var energySet = new Set(energyArr);
-			var brandSet = new Set(brandArr);
-			var psizeSet = new Set(psizeArr);
-// 			console.log(energySet);
-// 			console.log(brandSet);
-// 			console.log(psizeSet);
-			
-			
 
-			// set타입을 searchTVOk.jsp에 보냈으나 데이터가 안읽혀서 다른 배열로 옮겨담음
-			var energyArr2 = Array.from(energySet);
-			var brandArr2 = Array.from(brandSet);
-			var psizeArr2 = Array.from(psizeSet);
-			
-// 			map형식{"키", 값}
 			$.ajax({
 	            type:"POST",
 	            async: true, 
 	            url: "searchTVOk.jsp", 
-	            traditional : true, // 배열로 받겠다.
 	            dataType: "html", 
-	            data:{"energyArr2":energyArr2, "brandArr2":brandArr2, "psizeArr2":psizeArr2}, 
+	            data:{"energy":energy, "brand":brand, "psize":psize}, 
 	            success:function(response, status, request, data){
-	            	console.log(response.trim());
+// 	            	console.log(response.trim());
 	            	location.reload();
 	               
 	            },
@@ -192,6 +171,7 @@
 						<th class="optionclass" name ="3">3등급</th>
 						<th class="optionclass" name ="4">4등급</th>
 						<th class="optionclass" name ="5">5등급</th>
+						<th class="optionclass" name ="0">비대상제품</th>
 					</tr>
 					<tr class="option">
 						<th class="thclass">브랜드</th>
