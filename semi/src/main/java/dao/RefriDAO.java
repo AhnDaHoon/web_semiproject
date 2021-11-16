@@ -38,7 +38,7 @@ public class RefriDAO {
 	public ArrayList<RefriVO> getAll() {
 		
 		sb.setLength(0);
-		sb.append("SELECT pno, code, pname, pdesc, brand, price, regdate, energy, imgfile, door, volume, codename, codename2, aaaa ");
+		sb.append("SELECT pno, code, pname, pdesc, brand, price, regdate, energy, imgfile, door, volume, codename, codename2, pricegrade, volumegrade ");
 		sb.append("FROM refri ");
 	
 		
@@ -62,9 +62,10 @@ public class RefriDAO {
 				int volume = rs.getInt("volume");
 				String codename = rs.getString("codename");
 				String codename2 = rs.getString("codename2");
-				String aaaa = rs.getString("aaaa");
+				String pricegrade = rs.getString("pricegrade");
+				String volumegrade = rs.getString("volumegrade");
 				
-				RefriVO vo = new RefriVO(pno, code, pname, pdesc, brand, price, regdate, energy, imgfile, door, volume, codename, codename2, aaaa);
+				RefriVO vo = new RefriVO(pno, code, pname, pdesc, brand, price, regdate, energy, imgfile, door, volume, codename, codename2, pricegrade, volumegrade);
 				list.add(vo);
 			}
 			conn.close();
@@ -76,7 +77,7 @@ public class RefriDAO {
 	
 	
 	
-	public ArrayList<RefriVO> searchEa(String energyVal, String brandVal, String doorVal) {
+	public ArrayList<RefriVO> searchEa(String energyVal, String brandVal, String doorVal, String priceVal, String volumeVal) {
 		ArrayList<RefriVO> list = new ArrayList<RefriVO>();
 		
 //		sb.append("SELECT pno, code, pname, pdesc, brand, price, regdate, energy, imgfile, door, volume, codename, codename2, aaaa ");
@@ -93,13 +94,17 @@ public class RefriDAO {
 		
 			sb.setLength(0);
 			
-			sb.append("SELECT pno, code, pname, pdesc, brand, price, regdate, energy, imgfile, door, volume, codename, codename2, aaaa ");
-			sb.append("FROM(SELECT pno, code, pname, pdesc, brand, price, regdate, energy, imgfile, door, volume, codename, codename2, aaaa ");
-			sb.append("		FROM(SELECT pno, code, pname, pdesc, brand, price, regdate, energy, imgfile, door, volume, codename, codename2, aaaa ");
-			sb.append("			FROM refri ");
-			sb.append(			energyVal+")");
-			sb.append(		brandVal+")");
-			sb.append(doorVal);
+			sb.append("	SELECT pno, code, pname, pdesc, brand, price, regdate, energy, imgfile, door, volume, codename, codename2, pricegrade, volumegrade ");
+			sb.append("		FROM(SELECT pno, code, pname, pdesc, brand, price, regdate, energy, imgfile, door, volume, codename, codename2, pricegrade, volumegrade ");
+			sb.append("			FROM(SELECT pno, code, pname, pdesc, brand, price, regdate, energy, imgfile, door, volume, codename, codename2, pricegrade, volumegrade ");
+			sb.append("				FROM(SELECT pno, code, pname, pdesc, brand, price, regdate, energy, imgfile, door, volume, codename, codename2, pricegrade, volumegrade ");
+			sb.append("					FROM(SELECT pno, code, pname, pdesc, brand, price, regdate, energy, imgfile, door, volume, codename, codename2, pricegrade, volumegrade ");
+			sb.append("					FROM refri ");
+			sb.append(					energyVal+")");
+			sb.append(				brandVal+")");
+			sb.append(			doorVal+")");
+			sb.append(		priceVal+")");
+			sb.append(volumeVal);
 			
 
 			
@@ -123,9 +128,10 @@ public class RefriDAO {
 					int volume = rs.getInt("volume");
 					String codename = rs.getString("codename");
 					String codename2 = rs.getString("codename2");
-					String aaaa = rs.getString("aaaa");
+					String pricegrade = rs.getString("pricegrade");
+					String volumegrade = rs.getString("volumegrade");
 					
-					RefriVO vo = new RefriVO(pno, code, pname, pdesc, brand, price, regdate, energy, imgfile, door, volume, codename, codename2, aaaa);
+					RefriVO vo = new RefriVO(pno, code, pname, pdesc, brand, price, regdate, energy, imgfile, door, volume, codename, codename2, pricegrade, volumegrade);
 					list.add(vo);
 				}
 				conn.close();

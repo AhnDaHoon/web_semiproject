@@ -22,6 +22,7 @@ public class RefriVO {
 	int volume;
 	String codename;
 	String codename2;
-	String aaaa;
+	String pricegrade;
+	String volumegrade;
 	
 }

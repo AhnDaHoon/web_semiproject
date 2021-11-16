@@ -100,9 +100,11 @@
 		var energy;
 		var brand;
 		var door;
-		var doorreset
+		// doorreset: 도어리셋에 필요함
+		var doorreset;
+		var price;
+		var volume;
 		$(".optionclass").on("click", function(){
-// 			console.log($(this).text());
 			
 			// searchTVOk.jsp에 id 값을 넘겨줌
 			console.log($(this).attr("name"));
@@ -112,7 +114,7 @@
 				energy = $(this).attr("name");				
 			}else if($(this).attr("name") == 'energyreset'){
 				energy = 'energyreset';			
-			}else if($(this).attr("name") == "'SAMSUNG'" || $(this).attr("name") == "'LG'" || $(this).attr("name") == "'CARRIER'" || $(this).attr("name") == "'HAIER'"){
+			}else if($(this).attr("name") == "'SAMSUNG'" || $(this).attr("name") == "'LG'" || $(this).attr("name") == "'CARRIER'" || $(this).attr("name") == "'HAIER'" || $(this).attr("name") == "'CHANGHONG'"){
 				brand = $(this).attr("name");
 			}else if($(this).attr("name") == 'brandreset'){
 				brand = 'brandreset';
@@ -120,14 +122,26 @@
 				door = $(this).attr("name");
 			}else if($(this).attr("name") == 'doorreset'){
 				doorreset = 'doorreset';
+			}else if($(this).attr("name") == "'PE'" || $(this).attr("name") == "'PD'" || $(this).attr("name") == "'PC'" || $(this).attr("name") == "'PB'" || $(this).attr("name") == "'PA'"){
+				price = $(this).attr("name");
+			}else if($(this).attr("name") == 'pricereset'){
+				price = 'pricereset';	
+			}else if($(this).attr("name") == "'VF'" || $(this).attr("name") == "'VE'" || $(this).attr("name") == "'VD'" || $(this).attr("name") == "'VC'" || $(this).attr("name") == "'VB'"|| $(this).attr("name") == "'VA'"){
+				volume = $(this).attr("name");
+			}else if($(this).attr("name") == 'volumereset'){
+				volume = 'volumereset';	
 			}
+			
+			
+			
+
 
 			$.ajax({
 	            type:"POST",
 	            async: true, 
 	            url: "searchRefriOk.jsp", 
 	            dataType: "html", 
-	            data:{"energy":energy, "brand":brand, "door":door, "doorreset":doorreset}, 
+	            data:{"energy":energy, "brand":brand, "door":door, "doorreset":doorreset, "price":price, "volume":volume}, 
 	            success:function(response, status, request, data){
 // 	            	console.log(response.trim());
 	            	location.reload();
@@ -182,6 +196,7 @@
 						<th class="optionclass" name ="'LG'">LG</th>
 						<th class="optionclass" name ="'CARRIER'">캐리어</th>
 						<th class="optionclass" name = "'HAIER'">HAIER</th>
+						<th class="optionclass" name = "'CHANGHONG'">CHANGHONG</th>
 					</tr>
 					<tr class="option">
 						<th class="thclass">도어</th>
@@ -192,22 +207,23 @@
 						<th class="optionclass" name ="4개">4개</th>
 					</tr>
 					<tr class="option">
-						<th class="thclass">검색사항4</th>
-						<th class="optionclass">전체</th>
-						<th class="optionclass">옵션1</th>
-						<th class="optionclass">옵션2</th>
-						<th class="optionclass">옵션3</th>
-						<th class="optionclass">옵션4</th>
-						<th class="optionclass">옵션5</th>
+						<th class="thclass">가격</th>
+						<th class="optionclass" name = "pricereset">전체</th>
+						<th class="optionclass"  name = "'PE'">~100만원</th>
+						<th class="optionclass"  name = "'PD'">101~150만원</th>
+						<th class="optionclass"  name = "'PC'">151~200만원</th>
+						<th class="optionclass"  name = "'PB'">201~300만원</th>
+						<th class="optionclass"  name = "'PA'">300만원이상</th>
 					</tr>
 					<tr class="option">
-						<th class="thclass">검색사항5</th>
-						<th class="optionclass">전체</th>
-						<th class="optionclass">옵션1</th>
-						<th class="optionclass">옵션2</th>
-						<th class="optionclass">옵션3</th>
-						<th class="optionclass">옵션4</th>
-						<th class="optionclass">옵션5</th>
+						<th class="thclass">용량</th>
+						<th class="optionclass" name = "volumereset">전체</th>
+						<th class="optionclass" name = "'VF'">100~200ℓ</th>
+						<th class="optionclass" name = "'VE'">201~300ℓ</th>
+						<th class="optionclass" name = "'VD'">301~400ℓ</th>
+						<th class="optionclass" name = "'VC'">401~500ℓ</th>
+						<th class="optionclass" name = "'VB'">501~600ℓ</th>
+						<th class="optionclass" name = "'VA'">601ℓ~</th>
 					</tr>
 				</table>
 			</div>
@@ -233,7 +249,7 @@
 	// 				out.println("<h1 id='lineh1'></h1>");
 					out.println("<div class='divclass'>");
 					out.println("<div id='imgdiv'>");
-// 					out.println("<img src='" + x.getImgfile() + "' alt='' />");
+					out.println("<img src='" + x.getImgfile() + "' alt='' />");
 					out.println("</div>");
 					out.println("<div id='rightdiv'>");
 						out.println("<h2>"+ x.getPname() +"</h2> <br />");

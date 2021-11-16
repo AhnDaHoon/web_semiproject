@@ -87,12 +87,16 @@
 	ArrayList<String> energyArr = new ArrayList<String>();
 	ArrayList<String> brandArr = new ArrayList<String>();
 	ArrayList<String> doorArr = new ArrayList<String>();
+	ArrayList<String> priceArr = new ArrayList<String>();
+	ArrayList<String> volumeArr = new ArrayList<String>();
 	
 	if(tvoArr != null){
 		session.setAttribute("tvoArr", tvoArr);
 		session.setAttribute("energyArr", energyArr);
 		session.setAttribute("brandArr", brandArr);
 		session.setAttribute("doorArr", doorArr);
+		session.setAttribute("priceArr", priceArr);
+		session.setAttribute("volumeArr", volumeArr);
 
 		
 	}

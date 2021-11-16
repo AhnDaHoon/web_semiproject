@@ -7,18 +7,29 @@
 	String pEnergy = null;
 	String pBrand = null;
 	String pDoor = null;
+	String pPrice = null;
+	String pVolume = null;
 	
 	Object energyObj = session.getAttribute("energyArr");
 	Object brandObj = session.getAttribute("brandArr");
 	Object doorObj = session.getAttribute("doorArr");
+	Object priceObj = session.getAttribute("priceArr");
+	Object volumeObj = session.getAttribute("volumeArr");
 		
 	ArrayList<String> energyArr = (ArrayList<String>)energyObj;
 	ArrayList<String> brandArr = (ArrayList<String>)brandObj;
 	ArrayList<String> doorArr = (ArrayList<String>)doorObj;
+	ArrayList<String> priceArr = (ArrayList<String>)priceObj;
+	ArrayList<String> volumeArr = (ArrayList<String>)volumeObj;
+	
 	if(request.getParameter("energy") != null){
 		pEnergy = request.getParameter("energy");
 	}else if(request.getParameter("brand") != null){
-		pBrand = request.getParameter("brand");		
+		pBrand = request.getParameter("brand");
+	}else if(request.getParameter("price") != null){
+		pPrice =  request.getParameter("price");
+	}else if(request.getParameter("volume") != null){
+		pVolume =  request.getParameter("volume");
 	}else if(request.getParameter("door") != null){
 		if(request.getParameter("door").equals("1개")){
 			pDoor = "1";		
@@ -40,6 +51,10 @@
 		energyArr.clear();
 	}else if(pBrand != null && pBrand.equals("brandreset")){
 		brandArr.clear();
+	}else if(pPrice != null && pPrice.equals("pricereset")){
+		priceArr.clear();
+	}else if(pVolume != null && pVolume.equals("volumereset")){
+		volumeArr.clear();
 	}
 	
 //////////////////////////////////////////////////////////////////////////
@@ -116,13 +131,64 @@
 	}
 	
 	
-	System.out.println("brandIndex:    "+brandIndex);
-	System.out.println("doorArr:      "+doorArr);
-	System.out.println("pDoor:      "+pDoor);
+	// 가격
+	String priceVal = " ";
+	int priceIndex = priceArr.indexOf(pPrice);
+	if(pPrice != null && priceIndex == -1 && !pPrice.equals("pricereset")){
+		priceArr.add(pPrice);		
+	}else if(priceIndex != -1 ){
+		priceArr.remove(priceIndex);
+	}	
+	if(priceArr.size() != 0){
+		for(int i = 0; i < priceArr.size(); i++){
+			if(i == 0){
+				priceVal = "WHERE pricegrade = " + priceArr.get(i);			
+			}else{
+				priceVal = priceVal + " OR pricegrade = " + priceArr.get(i);
+			}
+		}
+	}
 	
+	
+// 	System.out.println("priceIndex:    "+priceIndex);
+// 	System.out.println("priceArr:      "+priceArr);
+// 	System.out.println("pPrice:      "+pPrice);
+// 	System.out.println("priceVal:      "+priceVal);
+	
+
+	// 사이즈
+		// 가격
+	String volumeVal = " ";
+	int volumeIndex = volumeArr.indexOf(pVolume);
+	if(pVolume != null && volumeIndex == -1 && !pVolume.equals("volumereset")){
+		volumeArr.add(pVolume);		
+	}else if(volumeIndex != -1 ){
+		volumeArr.remove(volumeIndex);
+	}	
+	if(volumeArr.size() != 0){
+		for(int i = 0; i < volumeArr.size(); i++){
+			if(i == 0){
+				volumeVal = "WHERE volumegrade = " + volumeArr.get(i);			
+			}else{
+				volumeVal = volumeVal + " OR volumegrade = " + volumeArr.get(i);
+			}
+		}
+	}
+	
+	
+	System.out.println("volumeIndex:    "+volumeIndex);
+	System.out.println("volumeArr:      "+volumeArr);
+	System.out.println("pVolume:      "+pVolume);
+	System.out.println("volumeVal:      "+volumeVal);
+
+
+
+
+
+
 	
 	RefriDAO dao = new RefriDAO();
-	ArrayList<RefriVO> refriArr = dao.searchEa(energyVal, brandVal, doorVal);
+	ArrayList<RefriVO> refriArr = dao.searchEa(energyVal, brandVal, doorVal, priceVal, volumeVal);
 	
 			
 	System.out.println(refriArr.size());
