@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>통하다 :: 전자제품, 하나로 통하다</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
 	$(function(){
@@ -14,7 +14,7 @@
 			var secCount = 0;
 		  	var tagArea = $('#chatbottext')[0];
 	    	
-		  	var new_img = $("<img id='chatavatar' src='../images/ball15.png' alt='' />")[0];
+		  	var new_img = $("<img id='chatavatar' src='../images/chat.png' alt='' />")[0];
 			var new_pTag  = $("<p class='chattext'></p>")[0];
 			
 		 	tagArea.appendChild(new_img);
@@ -126,8 +126,8 @@
     
     #chatavatar{
     	right: 10px;
-        width: 35px;
-    	height: 35px;
+        width: 50px;
+    	height: 50px;
     	float: left;
     	padding: 7px 16px;
     	position: relative;
@@ -209,7 +209,7 @@
 	        <div class="main">
 	       	        <div class="divscroll">
 	       	        	<div id="chatbottext">
-	       	        		<img id="chatavatar" src="../images/ball15.png" alt="" />
+	       	        		<img id="chatavatar" src="../images/chat.png" alt="" />
 	       	        		<p class="chattext">챗봇 서비스 이용을 위해 [개인정보 수집·이용 동의 안내]에 대한 동의가 필요합니다.동의하시지 않는 경우 챗봇 서비스 이용이 불가합니다.</p><br>
 	       	        		<b><a class="choice first" id="no">만 14세 미만입니다.</a></b>
 	       	        		<b><a class="choice first" href="chatbotUI2.jsp" id="ok">만 14세 이상입니다.</a></b>

@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-<title>통하다 :: 회원가입</title>
+<title>통하다 :: 전자제품, 하나로 통하다</title>
 <style>
 	*{
 		font-size: 25px;

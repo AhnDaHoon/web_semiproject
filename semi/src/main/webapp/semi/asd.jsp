@@ -9,7 +9,7 @@ button{
 	font-size : 5em;
 }
 </style>
-<title>Insert title here</title>
+<title>통하다 :: 전자제품, 하나로 통하다</title>
 </head>
 <body>
 <div>

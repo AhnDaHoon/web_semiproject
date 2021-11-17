@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>통하다 :: 제품탐색</title>
+<title>통하다 :: 전자제품, 하나로 통하다</title>
 <style>
 	.whole{
 			width: 1800px;
@@ -65,7 +65,8 @@
  		width : 850px;
 		margin: 0 auto;
 		margin-top:50px;
-		border: 1px solid black;
+		border: 3px solid rgba(120,120,120,0.8);
+		border-radius: 10px;
 		display:flex;
 		flex-direction: row;
 		flex-wrap:wrap;
@@ -75,7 +76,6 @@
 		margin-left : 10px;
 		margin-top : 30px;
 		margin-bottom : 20px;
-		border: 1px solid black;
 		text-align:center;
 		display: inline-block;
 	}
@@ -93,10 +93,11 @@
 		top: 50px;
 		width: 200px;
 		height: 50px;
+		border: none;
 		border-radius: 30px;
 		background: rgba(118,167,247,0.8);
 		color: white;
-		font-size: 20px;
+		font-size: 25px;
 		font-weight: bold;
 		cursor: pointer;
 	}
@@ -108,7 +109,7 @@
 		cursor: pointer;
 	}
 	.active{
-	    background: #0000fe;
+	    background: rgb(118,167,247);
 	    color: #fff;
 	    border-radius: 10px;
 	}

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>통하다 :: 하나로 통하다</title>
+<title>통하다 :: 전자제품, 하나로 통하다</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
 	$(function(){
@@ -171,38 +171,38 @@
 		
 	})
 	
-	window.onload=changeimg;
+// 	window.onload=changeimg;
 	
-	    var nextimg = 1;
-        function changeimg(){
-           var img1 = document.getElementById("img1");
+// 	    var nextimg = 1;
+//         function changeimg(){
+//            var img1 = document.getElementById("img1");
             
-            if(nextimg == 1){
-            	img1.src = "../images/banner1.png";
-            }
-            else if(nextimg == 2){
-            	img1.src = "../images/banner2.png";
-            }
-            else if(nextimg == 3){
-            	img1.src = "../images/banner3.png";
-            }
-            else if(nextimg == 4){
-            	img1.src = "../images/banner4.png";
-            }
-            else if(nextimg == 5){
-            	img1.src = "../images/banner5.png";
-            }
-            else if(nextimg == 6){
-            	img1.src = "../images/banner6.png";
-            }
-            nextimg++;
-            window.setTimeout(changeimg,3000);
-            if(nextimg == 7){
-                nextimg = 1;
-            }
+//             if(nextimg == 1){
+//             	img1.src = "../images/banner1.png";
+//             }
+//             else if(nextimg == 2){
+//             	img1.src = "../images/banner2.png";
+//             }
+//             else if(nextimg == 3){
+//             	img1.src = "../images/banner3.png";
+//             }
+//             else if(nextimg == 4){
+//             	img1.src = "../images/banner4.png";
+//             }
+//             else if(nextimg == 5){
+//             	img1.src = "../images/banner5.png";
+//             }
+//             else if(nextimg == 6){
+//             	img1.src = "../images/banner6.png";
+//             }
+//             nextimg++;
+//             window.setTimeout(changeimg,3000);
+//             if(nextimg == 7){
+//                 nextimg = 1;
+//             }
             
 
-        }
+//         }
 </script>
 
 <style>
@@ -255,7 +255,6 @@
 	.pickimg{
 		width: 300px;
 		height: 300px;
-		border: 1px solid black;
 	}
 	.pimg{
 		width: 50px;
@@ -273,7 +272,8 @@
 		width : 1700px;
 		height: 420px;
 		margin: 0 auto;
-		border: 1px solid black;
+		border: 3px solid rgba(120,120,120,0.8);
+		border-radius: 10px;
 	}
 	#icondiv1{
 		position:relative;
@@ -378,6 +378,9 @@
 		position: relative;
 		top: 40px;
 		margin-left: 30px;
+		height: 360px;
+		overflow: hidden;
+		cursor: pointer;
 	}
 	
 	.container>p {
@@ -877,7 +880,7 @@
 		</div>
 		
 		<br /><br />
-			<p>4조의 노트북 추천픽 <img src="../images/computer.png" alt="" class="pimg"/> </p><br />
+			<p>통하다 노트북 추천픽 <img src="../images/computer.png" alt="" class="pimg"/> </p><br />
 		<div class="divclass" id="pickdiv">
 			<div class="pick1">
 			<p> </p>
@@ -885,188 +888,188 @@
 		  <tr>
 			<td>
 				<div class="picktddiv">
-					<img src="../images/computer1.png" alt="" class="pickimg"/> <br />
-					<p class="iconp">노트북1</p>
+					<img src="../images/computer1.jpg" alt="" class="pickimg"/> <br />
+					<p class="iconp">한성컴퓨터 TFG276RT</p>
 				</div>
 			</td>
 			<td>
 				<div class="picktddiv">
-					<img src="../images/computer1.png" alt="" class="pickimg"/> <br />
-					<p class="iconp">노트북2</p>
+					<img src="../images/computer2.jpg" alt="" class="pickimg"/> <br />
+					<p class="iconp">ASUS 비보북 X415MA</p>
 				</div>
 			</td>
 			<td>
 				<div class="picktddiv">
-					<img src="../images/computer1.png" alt="" class="pickimg"/> <br />
-					<p class="iconp">노트북3</p>
+					<img src="../images/computer3.jpg" alt="" class="pickimg"/> <br />
+					<p class="iconp">LG 그램 16Z90P-GA7IK</p>
 				</div>
 			</td>
 			<td>
 				<div class="picktddiv">
-					<img src="../images/computer1.png" alt="" class="pickimg"/> <br />
-					<p class="iconp">노트북4</p>
+					<img src="../images/computer4.jpg" alt="" class="pickimg"/> <br />
+					<p class="iconp">LG 2021 울트라기어 17UD70P-PX76K WIN10 16GB램</p>
 				</div>
 			</td>
 			<td>
 				<div class="picktddiv">
-					<img src="../images/computer1.png" alt="" class="pickimg"/> <br />
-					<p class="iconp">노트북5</p>
+					<img src="../images/computer8.jpg" alt="" class="pickimg"/> <br />
+					<p class="iconp">삼성전자 갤럭시북 프로 NT950XDB-KD71B</p>
 				</div>
 			</td>
 		  </tr>
 		</table>
 			</div>
 		</div>	<br /><br />
-				<p>4조의 냉장고 추천픽 <img src="../images/refri1.png" alt="" class="pimg"/> </p><br />
+				<p>통하다 냉장고 추천픽 <img src="../images/refri1.png" alt="" class="pimg"/> </p><br />
 		<div class="divclass" id="pickdiv">
 			<div class="pick1">
 		<table>
 		  <tr>
 			<td>
 				<div class="picktddiv">
-					<img src="../images/aa.jpg" alt="" class="pickimg"/> <br />
-					<p class="iconp">냉장고1</p>
+					<img src="../images/refri10.jpg" alt="" class="pickimg"/> <br />
+					<p class="iconp">창홍 ORD-138B0S</p>
 				</div>
 			</td>
 			<td>
 				<div class="picktddiv">
-					<img src="../images/aa.jpg" alt="" class="pickimg"/> <br />
-					<p class="iconp">냉장고2</p>
+					<img src="../images/refri11.jpg" alt="" class="pickimg"/> <br />
+					<p class="iconp">삼성전자  RB30R4051B1</p>
 				</div>
 			</td>
 			<td>
 				<div class="picktddiv">
-					<img src="../images/aa.jpg" alt="" class="pickimg"/> <br />
-					<p class="iconp">냉장고3</p>
+					<img src="../images/refri2.jpg" alt="" class="pickimg"/> <br />
+					<p class="iconp">삼성전자 RS84T5071SL</p>
 				</div>
 			</td>
 			<td>
 				<div class="picktddiv">
-					<img src="../images/aa.jpg" alt="" class="pickimg"/> <br />
-					<p class="iconp">냉장고4</p>
+					<img src="../images/refri13.jpg" alt="" class="pickimg"/> <br />
+					<p class="iconp">LG전자  M459S</p>
 				</div>
 			</td>
 			<td>
 				<div class="picktddiv">
-					<img src="../images/aa.jpg" alt="" class="pickimg"/> <br />
-					<p class="iconp">냉장고5</p>
+					<img src="../images/refri1.jpg" alt="" class="pickimg"/> <br />
+					<p class="iconp">삼성전자 RT25NARAHS8</p>
 				</div>
 			</td>
 		  </tr>
 		</table>
 			</div>
 		</div>	<br /><br />
-				<p>4조의 TV 추천픽 <img src="../images/tv_copy.png" alt="" class="pimg"/> </p><br />
+				<p>통하다 TV 추천픽 <img src="../images/tv_copy.png" alt="" class="pimg"/> </p><br />
 		<div class="divclass" id="pickdiv">
 			<div class="pick1">
 					<table>
 		  <tr>
 			<td>
 				<div class="picktddiv">
-					<img src="../images/cc.jpg" alt="" class="pickimg"/> <br />
-					<p class="iconp">TV1</p>
+					<img src="../images/TV1.png" alt="" class="pickimg"/> <br />
+					<p class="iconp">삼성 KQ85QNA900F</p>
 				</div>
 			</td>
 			<td>
 				<div class="picktddiv">
-					<img src="../images/cc.jpg" alt="" class="pickimg"/> <br />
-					<p class="iconp">TV2</p>
+					<img src="../images/TV2.png" alt="" class="pickimg"/> <br />
+					<p class="iconp">삼성 KQ43LST05A-MS</p>
 				</div>
 			</td>
 			<td>
 				<div class="picktddiv">
-					<img src="../images/cc.jpg" alt="" class="pickimg"/> <br />
-					<p class="iconp">TV3</p>
+					<img src="../images/TV3.jpg" alt="" class="pickimg"/> <br />
+					<p class="iconp">LG 5NANO87KNB</p>
 				</div>
 			</td>
 			<td>
 				<div class="picktddiv">
-					<img src="../images/cc.jpg" alt="" class="pickimg"/> <br />
-					<p class="iconp">TV4</p>
+					<img src="../images/TV4.jpg" alt="" class="pickimg"/> <br />
+					<p class="iconp">샤오미 MX32F</p>
 				</div>
 			</td>
 			<td>
 				<div class="picktddiv">
-					<img src="../images/cc.jpg" alt="" class="pickimg"/> <br />
-					<p class="iconp">TV5</p>
-				</div>
-			</td>
-		  </tr>
-		</table>
-			</div>
-		</div>	<br /><br />
-				<p>4조의 세탁기 추천픽 <img src="../images/washing1.png" alt="" class="pimg"/> </p><br />
-		<div class="divclass" id="pickdiv">
-			<div class="pick1">
-			<table>
-		  <tr>
-			<td>
-				<div class="picktddiv">
-					<img src="../images/dd.jpg" alt="" class="pickimg"/> <br />
-					<p class="iconp">세탁기1</p>
-				</div>
-			</td>
-			<td>
-				<div class="picktddiv">
-					<img src="../images/dd.jpg" alt="" class="pickimg"/> <br />
-					<p class="iconp">세탁기2</p>
-				</div>
-			</td>
-			<td>
-				<div class="picktddiv">
-					<img src="../images/dd.jpg" alt="" class="pickimg"/> <br />
-					<p class="iconp">세탁기3</p>
-				</div>
-			</td>
-			<td>
-				<div class="picktddiv">
-					<img src="../images/dd.jpg" alt="" class="pickimg"/> <br />
-					<p class="iconp">세탁기4</p>
-				</div>
-			</td>
-			<td>
-				<div class="picktddiv">
-					<img src="../images/dd.jpg" alt="" class="pickimg"/> <br />
-					<p class="iconp">세탁기5</p>
+					<img src="../images/TV5.png" alt="" class="pickimg"/> <br />
+					<p class="iconp">삼성 KQ43LST01BF</p>
 				</div>
 			</td>
 		  </tr>
 		</table>
 			</div>
 		</div>	<br /><br />
-				<p>4조의 청소기 추천픽 <img src="../images/cleaner1.png" alt="" class="pimg"/> </p><br />
+				<p>통하다 세탁기 추천픽 <img src="../images/washing1.png" alt="" class="pimg"/> </p><br />
 		<div class="divclass" id="pickdiv">
 			<div class="pick1">
 			<table>
 		  <tr>
 			<td>
 				<div class="picktddiv">
-					<img src="../images/bb.jpg" alt="" class="pickimg"/> <br />
-					<p class="iconp">청소기1</p>
+					<img src="../images/washing1.jpg" alt="" class="pickimg"/> <br />
+					<p class="iconp">LG 트롬 스팀 ThinQ F24WDLD</p>
 				</div>
 			</td>
 			<td>
 				<div class="picktddiv">
-					<img src="../images/bb.jpg" alt="" class="pickimg"/> <br />
-					<p class="iconp">청소기2</p>
+					<img src="../images/washing2.jpg" alt="" class="pickimg"/> <br />
+					<p class="iconp">LG 트롬 스팀펫 F24EDE</p>
 				</div>
 			</td>
 			<td>
 				<div class="picktddiv">
-					<img src="../images/bb.jpg" alt="" class="pickimg"/> <br />
-					<p class="iconp">청소기3</p>
+					<img src="../images/washing3.jpg" alt="" class="pickimg"/> <br />
+					<p class="iconp">LG 트롬 트윈워시 F24VDSDM</p>
 				</div>
 			</td>
 			<td>
 				<div class="picktddiv">
-					<img src="../images/bb.jpg" alt="" class="pickimg"/> <br />
-					<p class="iconp">청소기4</p>
+					<img src="../images/washing4.jpg" alt="" class="pickimg"/> <br />
+					<p class="iconp">LG 트롬 스팀펫 트윈워시 F24EDEM</p>
 				</div>
 			</td>
 			<td>
 				<div class="picktddiv">
-					<img src="../images/bb.jpg" alt="" class="pickimg"/> <br />
-					<p class="iconp">청소기5</p>
+					<img src="../images/washing7.jpg" alt="" class="pickimg"/> <br />
+					<p class="iconp">LG 통돌이 블랙라벨+ T15WUA</p>
+				</div>
+			</td>
+		  </tr>
+		</table>
+			</div>
+		</div>	<br /><br />
+				<p>통하다 청소기 추천픽 <img src="../images/cleaner1.png" alt="" class="pimg"/> </p><br />
+		<div class="divclass" id="pickdiv">
+			<div class="pick1">
+			<table>
+		  <tr>
+			<td>
+				<div class="picktddiv">
+					<img src="../images/cleaner5.jpg" alt="" class="pickimg"/> <br />
+					<p class="iconp">삼성전자 파워모션 2000 VC33T2000LR</p>
+				</div>
+			</td>
+			<td>
+				<div class="picktddiv">
+					<img src="../images/cleaner6.jpg" alt="" class="pickimg"/> <br />
+					<p class="iconp">일렉트로룩스 퓨어 C9 PC91-4R</p>
+				</div>
+			</td>
+			<td>
+				<div class="picktddiv">
+					<img src="../images/cleaner7.jpg" alt="" class="pickimg"/> <br />
+					<p class="iconp">샤오미 TROUVER POWER 12</p>
+				</div>
+			</td>
+			<td>
+				<div class="picktddiv">
+					<img src="../images/cleaner8.jpg" alt="" class="pickimg"/> <br />
+					<p class="iconp">삼성전자 파워모션 4000 그리너리 VC33M4151L4</p>
+				</div>
+			</td>
+			<td>
+				<div class="picktddiv">
+					<img src="../images/cleaner9.jpg" alt="" class="pickimg"/> <br />
+					<p class="iconp">삼성전자 파워모션 7000 VC33M7141LW</p>
 				</div>
 			</td>
 		  </tr>

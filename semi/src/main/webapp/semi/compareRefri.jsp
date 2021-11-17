@@ -1,10 +1,13 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="vo.RefriVO"%>
+<%@page import="dao.ProductDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>비교함</title>
+<title>통하다 :: 전자제품, 하나로 통하다</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
 	$(function () {
@@ -124,11 +127,60 @@
 }
 
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="../js/httpRequest.js"></script>
+<script type="text/javascript">
+
+	$(function(){
+		var listPno = new Array();
+		
+		// 삭제 버튼 누르면
+		$("#btn").on("click", function(){
+			listPno.push(parseInt($("input[name=check]:checked").val()));
+			console.log(listPno);
+			
+			$.ajax({
+	            type:"GET", 
+	            async: true, 
+	            url: "compareDelOk.jsp",
+	            traditional: true,
+	            dataType: "html", 
+	            data:{"codename" : "refri", "listPno" : listPno},	
+	            success:function(response, status, request){  
+	            	if(response.trim() == "del") {
+	            		alert("해당 제품을 비교함에서 삭제하였습니다");
+	            		response.sendRedirect("compareRefri.jsp");
+	            	}
+	            },
+	            error: function(response, status, request){
+	                console.log("에러");
+	            },
+	            complete: function(){
+	            	console.log("Ajax통신 끝");
+	            },
+	            beforeSend: function(){
+	            }
+	        });
+
+		});
+	})
+
+</script>
 </head>
 <body>
 <div class="whole">
 	<jsp:include page="header.jsp"></jsp:include>
+	
+	<%
+		ProductDAO dao = new ProductDAO();
+		RefriVO vo = new RefriVO();
 
+		ArrayList<RefriVO> list = new ArrayList<RefriVO>();
+		
+		int size = dao.compareCount("refri");
+		
+		list = dao.getRefriCompare();
+	%>
 	<div class="container">
 		<div class="title">
 			<table>
@@ -153,10 +205,15 @@
 		<div class="compare">
 			<!-- 비교함이 null일 경우 + compare2 주소를 직접 입력하고 온 경우 비교함이 null 일 경우 
 				 br테그부터 h태그 표시 -->
-			<br />
+			<%
+				if(size < 1) {
+			%>
 			<br />
 			<br />
 			<h1>비교함이 비었습니다.</h1>
+			<%
+				} else {
+			%>
 			
 			<!--null이 아닐 경우 표 + div 표시 -->
 			<br />
@@ -170,52 +227,26 @@
 					<th>세부사항1</th>
 					<th>세부사항2</th>
 				</tr>
-			
-				<tr class="trborder">
-					<!-- vo로 가져온 값 출력 -->
-					<th>
-						<br />
-						<input type="checkbox" name="check" class="check"/>
-						<img src="../images/product1.JPG" alt="" id="product"/>
-						<br />바디워시
-					</th>
-					<th><span>10,000원</span></th>
-					<th>1</th>
-					<th>1</th>
-					<th>1</th>
-				</tr>
-				
-				<tr class="trborder">
-					<!-- vo로 가져온 값 출력 -->
-					<th>
-						<br />
-						<input type="checkbox" name="check" class="check"/>
-						<img src="../images/product1.JPG" alt="" id="product"/>
-						<br />바디워시
-					</th>
-					<th><span>10,000원</span></th>
-					<th>1</th>
-					<th>1</th>
-					<th>1</th>
-				</tr>
-				
-				<tr class="trborder">
-					<!-- vo로 가져온 값 출력 -->
-					<th>
-						<br />
-						<input type="checkbox" name="check" class="check"/>
-						<img src="../images/product1.JPG" alt="" id="product"/>
-						<br />바디워시
-					</th>
-					<th><span>10,000원</span></th>
-					<th>1</th>
-					<th>1</th>
-					<th>1</th>
-				</tr>	
-			
-			</table>
-			
-			
+				<%
+					for(RefriVO x : list) {
+						out.println("<tr class='trborder'>");
+						out.println("<th>");
+						out.println("<br />");
+						out.println("<input type='checkbox' name='check' value='" + x.getPno() + "' class='check'/>");
+						out.println("<img src='" + x.getImgfile() + "' alt='' id='product'/>");
+						out.println("<br />" + x.getPname());
+						out.println("</th>");
+						out.println("<th><span>" + x.getPrice() + "원</span></th>");
+						out.println("<th>" + x.getEnergy() + "</th>");
+						out.println("<th>" + x.getPdesc() + "</th>");
+						out.println("<th></th>");
+						out.println("</tr>");
+					}
+				%>			
+			</table>	
+			<%
+				}
+			%>		
 		</div>
 	</div>
 	

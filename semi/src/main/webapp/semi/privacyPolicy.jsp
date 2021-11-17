@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>개인정보 처리방침</title>
+<title>통하다 :: 전자제품, 하나로 통하다</title>
 <style>
 	.whole{
 		width: 1800px;

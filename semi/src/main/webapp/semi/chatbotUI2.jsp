@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>통하다 :: 전자제품, 하나로 통하다</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
 	
@@ -20,10 +20,10 @@
 	  	var tagArea = $('#chatbottext')[0];
     	
 		 // 새로만들 자식 속성
-	  	var new_Userimg = $("<img id='userchatavatar' src='../images/ball6.png' alt='' />")[0];
+	  	var new_Userimg = $("<img id='userchatavatar' src='../images/me.png' alt='' />")[0];
 		var new_UserpTag  = $("<p class='userchattext'></p>")[0];
 		
-	  	var new_CounselorImg = $("<img id='counselorchatavatar' src='../images/ball15.png' alt='' />")[0];
+	  	var new_CounselorImg = $("<img id='counselorchatavatar' src='../images/chat.png' alt='' />")[0];
 		var new_CounselorpTag  = $("<p class='counselorchattext'></p>")[0];
 		
 		$.ajax({
@@ -94,10 +94,10 @@
 	  	var tagArea = $('#chatbottext')[0];
     	
 		 // 새로만들 자식 속성
-	  	var new_Userimg = $("<img id='userchatavatar' src='../images/ball6.png' alt='' />")[0];
+	  	var new_Userimg = $("<img id='userchatavatar' src='../images/me.png' alt='' />")[0];
 		var new_UserpTag  = $("<p class='userchattext'></p>")[0];
 		
-	  	var new_CounselorImg = $("<img id='counselorchatavatar' src='../images/ball15.png' alt='' />")[0];
+	  	var new_CounselorImg = $("<img id='counselorchatavatar' src='../images/chat.png' alt='' />")[0];
 		var new_CounselorpTag  = $("<p class='counselorchattext'></p>")[0];
 		
 		$.ajax({
@@ -310,8 +310,8 @@
     
     #counselorchatavatar{
     	right: 10px;
-        width: 35px;
-    	height: 35px;
+        width: 50px;
+    	height: 50px;
     	float: left;
     	padding: 7px 16px;
     	position: relative;
@@ -319,13 +319,13 @@
     }
     
     #userchatavatar{
-    	bottom: 4px;
+    	position: relative;
+    	bottom: -10px;
     	right: 10px;
-        width: 35px;
-    	height: 35px;
+        width: 50px;
+    	height: 50px;
     	float: left;
     	padding: 7px 16px;
-    	position: relative;
     	right: -237px;
     }
     
@@ -366,7 +366,7 @@
 		       	 	<% 
 		       	 		}else{
 		       	 	%>
-       	        		<img id="counselorchatavatar" src="../images/ball15.png" alt="" />
+       	        		<img id="counselorchatavatar" src="../images/chat.png" alt="" />
        	        		<p class="counselorchattext">챗봇 서비스 이용을 위해 [개인정보 수집·이용 동의 안내]에 대한 동의가 필요합니다.동의하시지 않는 경우 챗봇 서비스 이용이 불가합니다.</p><br>
 		       	 	
 		       	 	<%	

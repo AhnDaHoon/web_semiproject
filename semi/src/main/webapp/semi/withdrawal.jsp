@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>통하다 :: 회원탈퇴</title>
+<title>통하다 :: 전자제품, 하나로 통하다</title>
 </head>
 <style>
 .whole {
@@ -248,7 +248,7 @@ h1 {
 			if($("#pw").val() == <%=vo.getPw() %>){
 			
 			if($("#agree").is(":checked") == true){
-				<% dao.deleteId(vo.getId()); %>
+<%-- 				<% dao.deleteOne(vo.getId()); %> --%>
 				alert("회원 탈퇴가 완료되었습니다.");
 				location.href = "logout.jsp";
 			}

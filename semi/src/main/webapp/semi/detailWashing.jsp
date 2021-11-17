@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>통하다 :: 스펙분석</title>
+<title>통하다 :: 전자제품, 하나로 통하다</title>
 <style>
 .whole {
 	width: 1800px;
