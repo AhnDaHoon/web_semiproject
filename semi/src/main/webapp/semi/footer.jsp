@@ -6,11 +6,31 @@ $(document).ready(function(){
     $("#showmore").click(function(){ 
         if($(".dropdown-content").is(":visible")){ 
             $(".dropdown-content").css("display", "none"); 
+            $(".dropdown-content2").hide(); 
+            $(this).text() === '사업자 정보 ▲' ? $(this).text('사업자 정보 ▼') : $(this).text('사업자 정보 ▲');
          }else{ $(".dropdown-content").css("display", "block"); 
                 $(".dropdown-content").css("cursor", "pointer")
-         $(this).text() === '사업자 정보▼' ? $(this).text('사업자 정보▲') : $(this).text('사업자 정보▼');
+                $(".dropdown-content2").hide(); 
+                $(this).text() === '사업자 정보 ▼' ? $(this).text('사업자 정보 ▲') : $(this).text('사업자 정보 ▼');
+                if($("#question").text() === '문의하기 ▲')
+                	$("#question").text('문의하기 ▼')
      } 
- }); 
+     
+ 	}); 
+    	$("#question").click(function(){
+			if($(".dropdown-content2").is(":visible")){ 
+                $(".dropdown-content2").css("display", "none"); 
+                $(".dropdown-content").hide(); 
+                $(this).text() === '문의하기 ▲' ? $(this).text('문의하기 ▼') : $(this).text('문의하기 ▲'); 
+            }else{ $(".dropdown-content2").css("display", "block"); 
+                   $(".dropdown-content2").css("cursor", "pointer");
+                   $(".dropdown-content").hide();     
+               	   $(this).text() === '문의하기 ▼' ? $(this).text('문의하기 ▲') : $(this).text('문의하기 ▼');
+               	   if($("#showmore").text() === '사업자 정보 ▲')
+               		$("#showmore").text('사업자 정보 ▼')
+	 		 } 
+		
+	});  
 });
 </script>
 <style>
@@ -41,7 +61,7 @@ $(document).ready(function(){
 		height: 120px;
 		width: 1770px;
 		min-width: 1770px;
-		border-top: 2px solid rgba(128,128,128,0.5);
+		border-top: 3px solid rgba(118,167,247,0.5);
 	}
 	
 	.aclass{
@@ -70,11 +90,10 @@ $(document).ready(function(){
 
     /* 사업자 정보 펼치기 접기 */
     .dropdown-content {
+    	margin-top: 50px;
         display: none;  
-        background-color: #A6C6FA;
         height: 150px;
 		min-width: 800px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     }
 
     #content{
@@ -96,6 +115,39 @@ $(document).ready(function(){
         cursor: pointer;
     }
     
+     /* 문의하기 펼치기 접기 */
+    .dropdown-content2 {
+    	margin-top: 50px;
+        display: none;  
+        height: 150px;
+		min-width: 800px;
+    }
+
+    #content2{
+        margin: 0 auto;
+        padding: 5px;
+        width: 500px;
+
+    }
+    
+    #content2 > p {
+    	font-size:25px;
+    }
+
+    .dropdown-content2 a:hover {
+        background-color: #ddd;
+    }
+
+    .dropdown:hover2 .dropdown-content2 {
+        display: block;
+    }
+
+    #question:hover{
+        cursor: pointer;
+    }
+    
+
+    
 </style>
 	<div class="before"></div>
 
@@ -106,10 +158,10 @@ $(document).ready(function(){
 				<a href="privacyPolicy.jsp" class="aclass">개인정보 처리방침</a>
 				</th>
 				<th>
-				<p class="aclass" id="showmore">사업자 정보▼</p>
+				<p class="aclass" id="showmore">사업자 정보 ▼</p>
 				</th>
 				<th>
-				<a href="" class="aclass">문의하기</a>
+				<p class="aclass" id="question">문의하기 ▼</p>
 				</th>
 			</tr>
 		</table>
@@ -135,6 +187,14 @@ $(document).ready(function(){
                 </table>
             </div>
           </div>
+          <div class="dropdown-content2">
+            <div id="content2">
+                <p>통하다를 사용해주셔서 감사합니다<br>
+					서비스를 이용하시면서 <br>
+					불편한점 혹은 개선사항은 <br>tonghda.tonghada.com<br>
+					이메일로 보내주시면 감사하겠습니다. </p>
+            </div>
+        </div>
 		<br />
 		<br />
 		<br />

@@ -57,7 +57,7 @@
 		recentlyViewedItemsVO rvo = new recentlyViewedItemsVO();
 		recentlyViewedItemsDAO rdao = new recentlyViewedItemsDAO();
 		rdao.InsertOne(id);
-// 		response.sendRedirect("login.jsp");
+		response.sendRedirect("login.jsp");
 	%>
 		<h1>회원가입 성공</h1>
 		<h2>아이디:<%= id %></h2>

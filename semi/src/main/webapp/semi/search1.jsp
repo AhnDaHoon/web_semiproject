@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>통하다 :: 하나로 통하다</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
 	$(function(){
@@ -166,9 +166,11 @@
 		})
 		$("img[src='../images/cleaner.png']").on("click" , function(){
 			location.href = "searchCleaner.jsp";
+		
 		})
 		
 	})
+	
 	window.onload=changeimg;
 	
 	    var nextimg = 1;
@@ -176,22 +178,22 @@
            var img1 = document.getElementById("img1");
             
             if(nextimg == 1){
-            	img1.src = "../images/0930Q1.jpg";
+            	img1.src = "../images/banner1.png";
             }
             else if(nextimg == 2){
-            	img1.src = "../images/0930Q2.jpg";
+            	img1.src = "../images/banner2.png";
             }
             else if(nextimg == 3){
-            	img1.src = "../images/0930Q3.jpg";
+            	img1.src = "../images/banner3.png";
             }
             else if(nextimg == 4){
-            	img1.src = "../images/0930Q4.jpg";
+            	img1.src = "../images/banner4.png";
             }
             else if(nextimg == 5){
-            	img1.src = "../images/0930Q5.jpg";
+            	img1.src = "../images/banner5.png";
             }
             else if(nextimg == 6){
-            	img1.src = "../images/0930Q6.jpg";
+            	img1.src = "../images/banner6.png";
             }
             nextimg++;
             window.setTimeout(changeimg,3000);
@@ -219,25 +221,24 @@
 	}
 	#imgdiv{
 		margin-top : 30px;
-		background: yellow;
-		width: 1000px;
+		margin-bottom: 100px;
+		width: 1700px;
 		height: 300px;
 		text-align: center;
 	}
 	#img1{
-		border: 1px solid black;
-		width: 1000px;
+		width: 1700px;
 		height: 300px;
+		cursor: pointer;
 	}
 	#branddiv{
-		margin-top : 30px;
-		width: 620px;
+		margin-top : 100px;
+		width: 680px;
 	}
 	.brandimg{
-		border: 1px solid black;
 		margin : 0px;
-		width: 300px;
-		height: 100px;
+		width: 160px;
+		height: 50px;
 	}
 	#icondiv{
 		width: 870px;
@@ -248,20 +249,20 @@
 		margin-right: 50px;
 		margin-left: 50px;
 		width: 70px;
-		height: 70px
-	}
-	.icon,img:hover {
+		height: 70px;
 		cursor: pointer;
 	}
 	.pickimg{
 		width: 300px;
 		height: 300px;
-		margin-left: 30px;
 		border: 1px solid black;
 	}
 	.pimg{
-		width: 30px;
-		height: 30px;
+		width: 50px;
+		height: 50px;
+		cursor: default;
+		position: relative;
+		top: 15px;
 	}
 	p{
 		font-size: 40px;
@@ -278,7 +279,8 @@
 		position:relative;
 		top: 40px;
 		margin-bottom:20px;
-		border: 1px solid black;
+		border: 3px solid rgba(120,120,120,0.8);
+		border-radius: 10px;
 		width: 680px;
 		height: 350px;
 	}
@@ -286,7 +288,8 @@
 		position:relative;
 		top: 40px;
 		margin-bottom:20px;
-		border: 1px solid black;
+		border: 3px solid rgba(120,120,120,0.8);
+		border-radius: 10px;
 		width: 680px;
 		height: 350px;
 	}
@@ -294,7 +297,8 @@
 		position:relative;
 		top: 40px;
 		margin-bottom:20px;
-		border: 1px solid black;
+		border: 3px solid rgba(120,120,120,0.8);
+		border-radius: 10px;
 		width: 680px;
 		height: 350px;
 	}
@@ -302,7 +306,8 @@
 		position:relative;
 		top: 40px;
 		margin-bottom:20px;
-		border: 1px solid black;
+		border: 3px solid rgba(120,120,120,0.8);
+		border-radius: 10px;
 		width: 680px;
 		height: 350px;
 	}
@@ -310,7 +315,8 @@
 		position:relative;
 		top: 40px;
 		margin-bottom:20px;
-		border: 1px solid black;
+		border: 3px solid rgba(120,120,120,0.8);
+		border-radius: 10px;
 		width: 680px;
 		height: 350px;
 	}
@@ -318,7 +324,8 @@
 		position:relative;
 		top: 40px;
 		margin-bottom:20px;
-		border: 1px solid black;
+		border: 3px solid rgba(120,120,120,0.8);
+		border-radius: 10px;
 		width: 680px;
 		height: 350px;
 	}
@@ -326,7 +333,8 @@
 		position:relative;
 		top: 40px;
 		margin-bottom:20px;
-		border: 1px solid black;
+		border: 3px solid rgba(120,120,120,0.8);
+		border-radius: 10px;
 		width: 680px;
 		height: 350px;
 	}
@@ -334,7 +342,8 @@
 		position:relative;
 		top: 40px;
 		margin-bottom:20px;
-		border: 1px solid black;
+		border: 3px solid rgba(120,120,120,0.8);
+		border-radius: 10px;
 		width: 680px;
 		height: 350px;
 	}
@@ -342,7 +351,8 @@
 		position:relative;
 		top: 40px;
 		margin-bottom:20px;
-		border: 1px solid black;
+		border: 3px solid rgba(120,120,120,0.8);
+		border-radius: 10px;
 		width: 680px;
 		height: 350px;
 	}
@@ -365,6 +375,37 @@
 	.picktddiv{
 		float: left;
 		text-align: center;
+		position: relative;
+		top: 40px;
+		margin-left: 30px;
+	}
+	
+	.container>p {
+		position: relative;
+		left: 50px;	
+		margin-top: 100px;
+	}
+	
+	.next {
+		border: none;
+		cursor: pointer;
+		background: white;
+		font-size: 32px;
+		color: rgba(60,60,60,0.8);
+	}
+	
+	.back {
+		border: none;
+		cursor: pointer;
+		background: white;
+		font-size: 32px;
+		color: rgba(60,60,60,0.8);
+	}
+	
+	#btn6 {
+		position: relative;
+		top: 58px;
+		left: 3px;
 	}
 	
 </style>
@@ -373,16 +414,11 @@
 <div class="whole">
 	<jsp:include page="chatbotMain.jsp"></jsp:include>
 	<jsp:include page="header.jsp"></jsp:include>
+	<jsp:include page="recentside.jsp"></jsp:include>
 	
 	<div class="container">
 		<div id="imgdiv" class="divclass">
-			<img src="../images/0930Q6.jpg" alt="" id="img1"/>
-		</div>
-		<div id="branddiv" class="divclass">
-			<img src="../images/coupang.png" alt="" class="brandimg"/>
-			<img src="../images/coupang.png" alt="" class="brandimg"/>
-			<img src="../images/coupang.png" alt="" class="brandimg"/>
-			<img src="../images/coupang.png" alt="" class="brandimg"/>
+			<jsp:include page="slide.jsp"></jsp:include>
 		</div>
 		<div class="divclass" id="icondiv">
 			<div class="icon1div">
@@ -501,7 +537,7 @@
 		  </tr>
 		  <tr>
 			<td colspan="4" class="btn">
-				<input type="button" value="더보기" id="btn1"/>
+				<input type="button" value="▶" id="btn1" class="next"/>
 			</td>
 		  </tr>
 		</table>
@@ -545,7 +581,7 @@
 		  </tr>
 		  <tr>
 			<td colspan="4" class="btn">
-				<input type="button" value="뒤로가기" id="btn2"/>
+				<input type="button" value="◀" id="btn2" class="back"/>
 			</td>
 		  </tr>
 		</table>
@@ -608,7 +644,7 @@
 		  </tr>
 		  <tr>
 			<td colspan="4" class="btn">
-				<input type="button" value="더보기" id="btn3"/>
+				<input type="button" value="▶" id="btn3" class="next"/>
 			</td>
 		  </tr>
 		</table>
@@ -670,8 +706,8 @@
 		  </tr>
 		  <tr>
 			<td colspan="4" class="btn">
-				<input type="button" value="뒤로가기" id="btn4"/>
-				<input type="button" value="더보기" id="btn5"/>
+				<input type="button" value="◀" id="btn4" class="back"/>
+				<input type="button" value="▶" id="btn5" class="next"/>
 			</td>
 		  </tr>
 		</table>
@@ -697,7 +733,7 @@
 		  </tr>
 		  <tr>
 			<td colspan="4" class="btn">
-				<input type="button" value="뒤로가기" id="btn6"/>
+				<input type="button" value="◀" id="btn6" class="back"/>
 			</td>
 		  </tr>
 		</table>
@@ -759,7 +795,7 @@
 		  </tr>
 		  <tr>
 			<td colspan="4" class="btn">
-				<input type="button" value="더보기" id="btn7"/>
+				<input type="button" value="▶" id="btn7" class="next"/>
 			</td>
 		  </tr>
 		</table>
@@ -803,7 +839,7 @@
 		  </tr>
 		   <tr>
 			<td colspan="4" class="btn">
-				<input type="button" value="뒤로가기" id="btn8"/>
+				<input type="button" value="◀" id="btn8" class="back"/>
 			</td>
 		  </tr>
 		</table>
@@ -841,9 +877,10 @@
 		</div>
 		
 		<br /><br />
+			<p>4조의 노트북 추천픽 <img src="../images/computer.png" alt="" class="pimg"/> </p><br />
 		<div class="divclass" id="pickdiv">
 			<div class="pick1">
-				<p>4조의 노트북 추천픽 <img src="../images/e.jpg" alt="" class="pimg"/> </p><br />
+			<p> </p>
 		<table>
 		  <tr>
 			<td>
@@ -880,9 +917,9 @@
 		</table>
 			</div>
 		</div>	<br /><br />
+				<p>4조의 냉장고 추천픽 <img src="../images/refri1.png" alt="" class="pimg"/> </p><br />
 		<div class="divclass" id="pickdiv">
 			<div class="pick1">
-				<p>4조의 냉장고 추천픽 <img src="../images/e.jpg" alt="" class="pimg"/> </p><br />
 		<table>
 		  <tr>
 			<td>
@@ -919,9 +956,9 @@
 		</table>
 			</div>
 		</div>	<br /><br />
+				<p>4조의 TV 추천픽 <img src="../images/tv_copy.png" alt="" class="pimg"/> </p><br />
 		<div class="divclass" id="pickdiv">
 			<div class="pick1">
-				<p>4조의 TV 추천픽 <img src="../images/e.jpg" alt="" class="pimg"/> </p><br />
 					<table>
 		  <tr>
 			<td>
@@ -958,9 +995,9 @@
 		</table>
 			</div>
 		</div>	<br /><br />
+				<p>4조의 세탁기 추천픽 <img src="../images/washing1.png" alt="" class="pimg"/> </p><br />
 		<div class="divclass" id="pickdiv">
 			<div class="pick1">
-				<p>4조의 세탁기 추천픽 <img src="../images/e.jpg" alt="" class="pimg"/> </p><br />
 			<table>
 		  <tr>
 			<td>
@@ -997,9 +1034,9 @@
 		</table>
 			</div>
 		</div>	<br /><br />
+				<p>4조의 청소기 추천픽 <img src="../images/cleaner1.png" alt="" class="pimg"/> </p><br />
 		<div class="divclass" id="pickdiv">
 			<div class="pick1">
-				<p>4조의 청소기 추천픽 <img src="../images/e.jpg" alt="" class="pimg"/> </p><br />
 			<table>
 		  <tr>
 			<td>
@@ -1035,6 +1072,12 @@
 		  </tr>
 		</table>			
 			</div>
+		<div id="branddiv" class="divclass">
+			<img src="../images/samsung.png" alt="" class="brandimg"/>
+			<img src="../images/LG.png" alt="" class="brandimg"/>
+			<img src="../images/xiaomi.png" alt="" class="brandimg"/>
+			<img src="../images/SK.png" alt="" class="brandimg"/>
+		</div>	
 		</div>	<br /><br />
 		
 	</div>

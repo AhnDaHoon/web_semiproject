@@ -41,6 +41,8 @@
 	margin: 0 auto;
 	text-align: center;
 	width: 100%;
+	position: relative;
+	top: -40px;
 }
 
 .icon {
@@ -83,7 +85,7 @@
 	text-align: left;
 }
 
-#kitchen, #it {
+#refri, #computer {
 	position: relative;
 	left: -180px;
 }
@@ -98,19 +100,29 @@
 <script type="text/javascript">
 
 	$(function(){
-		$(".icondiv").on("click", function(){
-			
-			$(".icondiv").children('input').attr("value", null);
-			var pname = $(this).children('img').attr("name");
-			var inputname = $(this).children('input').attr("name");
-// 			var inputval = $(this).children('input').attr("value")];
-			var inputval = $(this).children('input').attr("value", pname);
-
-// 			console.log($("#formId"));
-			console.log(inputname);
-			console.dir(inputval);
-			
-			$("#formId").submit();
+		// 청소기 비교함 클릭하면
+		$("#cleaner").on("click", function(){
+			location.href = 'compareCleaner.jsp'
+		});
+		
+		// 노트북 비교함 클릭하면
+		$("#computer").on("click", function(){
+			location.href = 'compareComputer.jsp'
+		});
+		
+		// 냉장고 비교함 클릭하면
+		$("#refri").on("click", function(){
+			location.href = 'compareRefri.jsp'
+		});
+		
+		// TV 비교함 클릭하면
+		$("#tv").on("click", function(){
+			location.href = 'compareTV.jsp'
+		});
+		
+		// 세탁기 비교함 클릭하면
+		$("#washing").on("click", function(){
+			location.href = 'compareWashing.jsp'
 		});
 	})
 
@@ -119,9 +131,13 @@
 <body>
 <%
 	ProductDAO dao = new ProductDAO();
-	TvVO vo = dao.getTvInfo("TEST TV");
+	//TvVO vo = dao.getTvInfo("TEST TV");
 	
-	int size = dao.compareCount("TV");
+	int sizeCleaner = dao.compareCount("CLEANER");	  // COMPARE_CLEANER 저장된 제품 수
+	int sizeComputer = dao.compareCount("COMPUTER");  // COMPARE_COMPUTER 저장된 제품 수
+	int sizeRefri = dao.compareCount("REFRI");		  // COMPARE_REFRI 저장된 제품 수
+	int sizeTV = dao.compareCount("TV");			  // COMPARE_TV 저장된 제품 수
+	int sizeWashing = dao.compareCount("WASHING");	  // COMPARE_WASHING 저장된 제품 수
 %>
 <form action="compare2.jsp" id="formId">
 	<div class="whole">
@@ -138,44 +154,83 @@
 			
 				
 				<!-- NULL일 때 아이콘이 보이지 않게 설정 필요  -->
+				<%
+					if(sizeCleaner == 0 && sizeComputer == 0 && sizeRefri== 0 && 
+					   sizeTV == 0 && sizeWashing == 0) {
+				%>
 				<br />
 				<br />
 				<br />
-				<h1>비교함이 비었습니다.</h1>
-				
+						<h1>비교함이 비었습니다.</h1>
+				<% 
+					}
+				%>
 				
 				<!-- NULL이 아닐 경우 해당 아이콘 화면에 출력 및 최소값 (1)  -->
 				<ul>
 					<li>
+						<%
+							if(sizeTV > 0 || sizeCleaner > 0 || sizeWashing > 0) {
+						%>
 						<div id="hdiv"><h1 class="category">생활가전</h1></div>
-						<div class="icondiv">
+						<%
+							}
+						
+							if(sizeTV > 0) {
+						%>
+						<div class="icondiv" id="tv">
+<!-- 							<a href="compare2.jsp?compare=TV"> -->
 							<img src="../images/tv.png" alt="" class="icon" name="tv"/><br />
-							<input type="hidden" name="tv"><span class="product">TV(<%= size %>)</span></input>
+							<input type="hidden" name="tv"><span class="product">TV(<%= sizeTV %>)</span></input>
+<!-- 							</a> -->
+						</div>
+						<%
+							}
 							
-				<!-- 		<span class="product">TV(스크립트렛 적용 필요. 최솟값 1 비교함에 해당 제품군 담길 때마다 +1)</span> -->
-						</div>
-						<div class="icondiv">
+							if(sizeCleaner > 0) {
+						%>
+						<div class="icondiv" id="cleaner">
 							<img src="../images/cleaner.png" alt="" class="icon" name="cleaner"/><br />
-							<input type="hidden" name="cleaner"><span class="product">청소기()</span></input>
+							<input type="hidden" name="cleaner"><span class="product">청소기(<%= sizeCleaner %>)</span></input>
 						</div>
-						<div class="icondiv">
+						<%
+							}
+							
+							if(sizeWashing > 0) {
+						%>
+						<div class="icondiv" id="washing">
 							<img src="../images/washing.png" alt="" class="icon" name="washing"/><br />
-							<input type="hidden" name="washing"><span class="product">세탁기()</span></input>
+							<input type="hidden" name="washing"><span class="product">세탁기(<%= sizeWashing %>)</span></input>
 						</div>
+						<%
+							}
+						%>
 					</li>
 					<li>
+						<%
+							if(sizeRefri > 0) {
+						%>
 						<div id="hdiv"><h1 class="category">주방가전</h1></div>
-						<div class="icondiv" id="kitchen">
+						<div class="icondiv" id="refri">
 							<img src="../images/refri.png" alt="" class="icon" name="refri"/><br />
-							<input type="hidden" name="refri"><span class="product">냉장고()</span></input>
+							<input type="hidden" name="refri"><span class="product">냉장고(<%= sizeRefri %>)</span></input>
 						</div>
+						<%
+							}
+						%>
 					</li>
 					<li>
+						<%
+							if(sizeComputer > 0) {
+						%>
 						<div id="hdiv"><h1 class="category">디지털IT</h1></div>
-						<div class="icondiv" id="it">
+						<div class="icondiv" id="computer">
 							<img src="../images/laptop.png" alt="" class="icon" name="laptop"/><br />
-							<input type="hidden" name="laptop"><span class="product">노트북()</span></input>
+							<input type="hidden" name="laptop"><span class="product">노트북(<%= sizeComputer %>)</span></input>
 						</div>
+						<%
+							}
+						%>
 					</li>
 				</ul>
 			</div>

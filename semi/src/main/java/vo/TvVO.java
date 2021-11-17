@@ -21,5 +21,6 @@ public class TvVO {
 	int psize;
 	String pixel;
 	String codename;
+	String codename2;
 	
 }

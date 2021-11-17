@@ -1,3 +1,6 @@
+<%@page import="vo.recentlyViewedItemsVO"%>
+<%@page import="vo.TongVO"%>
+<%@page import="dao.testInsertDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -5,6 +8,46 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+// 	ajax로 넘겨서 session에 저장
+	$(function(){
+		$(".product").on("click", function(){
+// 			console.log($(this)[0]);
+// 			var a = $(this)[0];
+// 			console.log(a);
+			var pno = $(this).children('.pno').text();
+			var pname = $(this).children('.pname').text();
+			var imgfile = $(this).children('td').children('.img').attr("src");
+// 			console.log(pno);
+// 			console.log(pname);
+// 			console.log(img);
+
+			$.ajax({
+	            type:"GET",
+	            async: true, 
+	            url: "recentlyViewedItemsOk.jsp", 
+	            dataType: "html", 
+	            data:{"pno":pno, "pname":pname, "imgfile":imgfile}, 
+	            success:function(response, status, request){
+// 	               console.log(response.trim());
+	            },
+	
+	            error: function(response, status, request){
+	                console.log("에러");
+	            },
+	       
+	            complete: function(){
+	            	console.log("Ajax통신 끝");
+	            },
+	   
+	            beforeSend: function(){
+	            }
+	
+			});
+		});
+	})
+</script>
 </head>
 <style>
     .whole{
@@ -32,29 +75,46 @@
         width: 200px
     }
     
-    div.recent>div>img{
-        width:200px;
-        height:200px;
+   img{
+        width:300px;
+        height:300px;
     }
 
     .products{
-        width:1400px;
-        height:600px;
+        width:1200px;
+        height:700px;
         margin: 0 auto;
+        display:flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+		justify-content: space-between;
     }
 
     .recent{
-        width:200px;
-        float:left;
-        padding:20px;
-        margin:15px;
-        border: 1px solid red;
+        width:300px;
+        height:300px;
+        margin:20px;
+        margin: 0 auto;
     }
    
     
     
     </style>
 <body>
+
+<%
+	testInsertDAO tidao = new testInsertDAO();
+	int ticount = tidao.counter();
+	
+	Object obj = session.getAttribute("vo");
+	TongVO tvo = (TongVO)obj;
+	String tvoid = tvo.getId();    
+	
+	Object obj2 = session.getAttribute("rvo");
+	recentlyViewedItemsVO rvo = (recentlyViewedItemsVO)obj2;
+	String[] arrPname = {rvo.getPname1(), rvo.getPname2(), rvo.getPname3(), rvo.getPname4(), rvo.getPname5()};
+	String[] arrImgfile = {rvo.getImgfile1(), rvo.getImgfile2(), rvo.getImgfile3(), rvo.getImgfile4(), rvo.getImgfile5()};
+%>
 <div class="whole">
         <jsp:include page="header.jsp"></jsp:include>
     
@@ -67,37 +127,14 @@
             <br />
             
         <div class="products">
-
-            <div class="recent">            
-                 <div><img src="../images/refri13.jpg" alt=""></div>
-            </div>
-            <div class="recent">            
-                <div><img src="../images/refri13.jpg" alt=""></div>
-            </div>
-            <div class="recent">            
-                <div><img src="../images/refri13.jpg" alt=""></div>
-            </div>
-            <div class="recent">            
-                <div><img src="../images/refri13.jpg" alt=""></div>
-            </div>
-            <div class="recent">            
-                <div><img src="../images/refri13.jpg" alt=""></div>
-            </div>
-            <div class="recent">            
-                <div><img src="../images/refri13.jpg" alt=""></div>
-            </div>
-            <div class="recent">            
-                <div><img src="../images/refri13.jpg" alt=""></div>
-            </div>
-            <div class="recent">            
-                <div><img src="../images/refri13.jpg" alt=""></div>
-            </div>
-            <div class="recent">            
-                <div><img src="../images/refri13.jpg" alt=""></div>
-            </div>
-            <div class="recent">            
-                <div><img src="../images/refri13.jpg" alt=""></div>
-            </div>
+		<%
+		for(int i = 0; i <= arrImgfile.length-1; i++){
+			out.println("<div class='recent'>  ");
+			out.println("<img src='"+ arrImgfile[i] +"'>");
+			out.println("<p>"+arrPname[i]+"</p>");
+			out.println("</div>");
+		}
+		%>
         </div>
                    
       </div>

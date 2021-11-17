@@ -1,3 +1,9 @@
+<%@page import="vo.RefriVO"%>
+<%@page import="vo.ComputerVO"%>
+<%@page import="vo.WashingVO"%>
+<%@page import="vo.CleanerVO"%>
+<%@page import="dao.ProductDAO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -118,6 +124,10 @@ body > div.container2{
 }
 
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+</script>
 </head>
 <body>
 <div class="whole">
@@ -177,78 +187,91 @@ body > div.container2{
     </div>
 	    
 	  <div class="container2">
-        <div class="img">
-            <img src="../images/puppy.jpg" alt="">
-        </div>
-        <div class="product_view">
-            <h2>삼성전자 RF85A911126</h2>
-            <table>
-                <tbody>
-                <tr>
-                    <th>판매가</th>
-                    <th class="price">2,081,390원</th>
-                </tr>
-                <tr>
-                    <th>모델명</th>
-                    <td>RS84T5071SL</td>
-                </tr>
-                <tr>
-                    <th>출시연월</th>
-                    <td>2020-03</td>
-                </tr>
-                <tr>
-                    <th>용량</th>
-                    <td>846L</td>
-                </tr>
-                <tr>
-                    <th>도어</th>
-                    <td>2도어</td>
-                </tr>
-                <tr>
-                    <th>제품정보</th>
-                    <td>탁월한 성능과 슬림 스타일로 실속만점 주방을 완성하다</td>
-                </tr>
-                </tbody>
-            </table>
-            <div class ="btn">
-                <div class="btn1">비교함에 넣기</div>
-            </div>
-    	</div>
-    </div>
-	    
-	    <br><br><br>
+	  <%
+		String[] pnameArr = request.getParameterValues("pnameArr");
+	  	String[] pname = pnameArr[0].trim().split(","); 
+	  	
+	  	ProductDAO dao = new ProductDAO();
+	  	RefriVO vo = new RefriVO();
+	  	  	
+	  	
+	  	for(int i = 0; i < pname.length-1; i++) {
+	  		vo = dao.getRefriInfo(pname[i].trim());
+	  	
+	        out.println("<div class='img'>");
+	        out.println("	<img src='" + vo.getImgfile() + "' alt=''");
+	        out.println("</div>");
+	        out.println("<div class='product_view'>");
+	        out.println("	<h2>" + vo.getPname() + "</h2>");
+	        out.println("   <table>");
+	        out.println("   	<tbody>");
+	        out.println("       <tr>");
+	        out.println("       	<th>판매가</th>");
+ 	        out.println("           <th class='price'>" + vo.getPrice() + "원</th>");
+	        out.println("       </tr>");
+	        out.println("       <tr>");
+	        out.println("           <th>모델명</th>");
+ 	        out.println("           <td>" + vo.getPname() + "</td>");
+	        out.println("       </tr>");
+	        out.println("       <tr>");
+	        out.println("           <th>출시연월</th>");
+ 	        out.println("           <td>" + vo.getRegdate() + "</td>");
+	        out.println("       </tr>");
+	        out.println("       <tr>");
+	        out.println("           <th>용량</th>");
+	        out.println("           <td>" + vo.getVolume() + "</td>");
+	        out.println("       </tr>");
+	        out.println("       <tr>");
+	        out.println("           <th>도어</th>");
+	        out.println("           <td>" + vo.getDoor() + "</td>");
+	        out.println("		</tr>");
+	        out.println("		<tr>");
+	        out.println("       	<th>제품정보</th>");
+ 	        out.println("           <td>" + vo.getPdesc() + "</td>");
+	        out.println("		</tr>");
+	        out.println("		</tbody>");
+	        out.println("	</table>");
+	        out.println("	<div class ='btn'>");
+	        out.println("		<div class='btn1'>비교함에 넣기</div>");
+	        out.println("	</div>");
+	        out.println("	</div>");
+	        out.println("</div>");
+	  	}
+		%>
+	 
+	<br><br><br>
 	    
 	<div class="container2">
         <div class="img">
             <img src="../images/puppy.jpg" alt="">
         </div>
         <div class="product_view">	<!-- db에서 값 가져오기 -->
-            <h2>RF85A911126</h2>
+            <h2></h2>
             <table>
                 <tbody>
                 <tr>
-                    <th>판매가</th>
-                    <td class="price">2,081,390</td>
+                    <th></th>
+                    <td class="price"></td>
                 </tr>
                 <tr>
-                    <th>모델명</th>
-                    <td>RS84T5071SL</td>
+                    <th></th>
+                    <td></td>
                 </tr>
                 <tr>
-                    <th>출시연월</th>
-                    <td>2020-03</td>
+                    <th></th>
+                    <td></td>
                 </tr>
                 <tr>
-                    <th>용량</th>
-                    <td>846L</td>
+                    <th></th>
+                    <td></td>
                 </tr>
                 <tr>
-                    <th>도어</th>
-                    <td>2도어</td>
+                    <th></th>
+                    <td></td>
                 </tr>
                 <tr>
-                    <th>제품정보</th>
-                    <td>탁월한 성능과 슬림 스타일로 실속만점 주방을 완성하다</td>
+                    <th></th>
+                    <td></td>
                 </tr>
                 </tbody>
             </table>

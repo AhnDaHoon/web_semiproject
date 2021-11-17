@@ -50,7 +50,7 @@
 	
 	#clickdiv img {
 		width: 300px;
-		height: 200px;
+		height: 230px;
 	}
 	
 	#main{
@@ -89,6 +89,7 @@
 	ArrayList<String> doorArr = new ArrayList<String>();
 	ArrayList<String> priceArr = new ArrayList<String>();
 	ArrayList<String> volumeArr = new ArrayList<String>();
+	
 	
 	if(tvoArr != null){
 		session.setAttribute("tvoArr", tvoArr);

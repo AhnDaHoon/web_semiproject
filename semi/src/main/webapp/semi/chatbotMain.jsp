@@ -26,14 +26,14 @@
         position: fixed;
         top: 80%;
         right: 8%;
-        width: 50px;
-        height: 50px;
+        width: 100px;
+        height: 100px;
     }
 </style>
 </head>
 <body>
 
-	    <a href="chatbotUI.jsp" target="_blank"><img class="chatImg" src="../images/ball1.png" alt=""></a>
+	    <a href="chatbotUI.jsp" target="_blank"><img class="chatImg" src="../images/chat.png" alt=""></a>
 		
 </body>
 </html>

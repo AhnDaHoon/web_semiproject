@@ -33,7 +33,7 @@
             dataType: "html", 
             data:{"text":$("#input").val()}, 
             success:function(response, status, request, data){
-            	// 아이디와 내용을 map형식으로 전달했으나 받는 방법을몰라서 문자열을 짜름
+            	// 아이디와 내용을 map형식으로 전달했으나 배운걸로만 만들기로해서 split으로 짜름
 				var tmpDate = response.trim().split(",");
             	
             	
@@ -107,7 +107,7 @@
             dataType: "html", 
             data:{"text":$("#input").val()}, 
             success:function(response, status, request, data){
-            	// 아이디와 내용을 map형식으로 전달했으나 받는 방법을몰라서 문자열을 짜름
+            	// 아이디와 내용을 map형식으로 전달했으나 배운걸로만 만들기로해서 split으로 짜름
 				var tmpDate = response.trim().split(",");
             	
             	
@@ -135,7 +135,6 @@
 
 				}
 				if(chatupdatenum == contentArr.length){
-					console.log("ㅁㅁ");
 				}else{
 					console.log(idArr[contentArr.length-1]);
 					if(idArr[contentArr.length-1] == "admin"){
@@ -181,7 +180,6 @@
 	            dataType: "html", 
 	            data:{"text":$("#input").val(), "textinput":"textinput"}, 
 	            success:function(response, status, request, data){
-	            	// 아이디와 내용을 map형식으로 전달했으나 받는 방법을몰라서 문자열을 짜름
 					var tmpDate = response.trim().split(",");
 	           
 	            },

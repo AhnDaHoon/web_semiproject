@@ -1,3 +1,4 @@
+<%@page import="dao.TVDAO"%>
 <%@page import="vo.ProductVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="vo.TvVO"%>
@@ -212,7 +213,7 @@
 	}
 	
 	
-	ProductDAO dao = new ProductDAO();
+	TVDAO dao = new TVDAO();
 	ArrayList<TvVO> a = dao.getAll();
 	
 // 	if(a.size() >= 5) {

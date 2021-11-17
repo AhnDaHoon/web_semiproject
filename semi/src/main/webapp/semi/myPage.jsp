@@ -18,7 +18,7 @@
 	.container {
 		text-align: center;
 		position: relative;
-		top: 100px;
+		top: 150px;
 	}
 	
 	.myPage{
@@ -54,7 +54,7 @@
 			<a href="myInfo.jsp">정보수정</a><br />
 			<a href="">문의내역</a><br />
 			<a href="">의견 보내기</a><br />
-			<a href="">공지사항(부가)</a><br />
+			<a href="notice.jsp">공지사항(부가)</a><br />
 			<a href="setting.jsp">설정</a>
 		</div>
 	</div>

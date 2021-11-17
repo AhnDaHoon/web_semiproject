@@ -15,7 +15,6 @@
 		chatDAO cdao = new chatDAO();
 	
 		ArrayList<chatVO> cvo = cdao.getAll();
-		System.out.println(text);
 		ArrayList<String> temp = new ArrayList<String>();;
 		for(chatVO x: cvo){
 			temp.add(x.getId()+" )()( "+x.getContent());

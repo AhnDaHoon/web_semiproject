@@ -1,4 +1,3 @@
-<%@page import="dao.TVDAO"%>
 <%@page import="vo.TvVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Set"%>
@@ -6,32 +5,46 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-// 	String energy =	request.getParameter("energy");
-// 	String brand =	request.getParameter("brand");
-// 	String psize =	request.getParameter("psize");
+	String[] energyArr2 = (String[]) request.getParameterValues("energyArr2");
+	String[] brandArr2 = (String[]) request.getParameterValues("brandArr2");
+	String[] psizeArr2 = (String[]) request.getParameterValues("psizeArr2");
 
-// 	System.out.println(energy);
-// 	System.out.println(brand);
-// 	System.out.println(psize);
-
-	ArrayList energyArr = new ArrayList();
-	ArrayList brandArr = new ArrayList();
-	ArrayList psizeArr = new ArrayList();
 	
-	if(request.getParameter("energy") != null){
-		energyArr.add(request.getParameter("energy"));
-	}else if(request.getParameter("brand") != null){
-		brandArr.add(request.getParameter("brand"));
+	Object tvoObj = session.getAttribute("tvoArrSecond");
+	ArrayList<TvVO> tvoArr = (ArrayList<TvVO>) tvoObj;
+	
+	ArrayList<TvVO> choiceTvoArr = new ArrayList<TvVO>();
+	
+	int counter = 0;
+	for(TvVO x: tvoArr){
+		for(String y: energyArr2){
+			if(y.equals(Integer.toString(x.getEnergy()))){
+				choiceTvoArr.add(x);
+			}else if(y.equals("energyreset")){
+				choiceTvoArr = null;
+				choiceTvoArr = tvoArr;
+			}
+		}
 		
-	}else if(request.getParameter("psize") != null){
-		psizeArr.add(request.getParameter("psize"));
+		session.setAttribute("tvoArr", tvoArr);
 		
+// 		for(String y: psizeArr2){
+// 			if(x.getBrand().equals(y)){
+// 				choiceTvoArr.add(x);
+// 			}
+// 		}
+// 		counter++;
 	}
-// 	Object obj = session.get
-	
-	
+
+// 	for(TvVO x: tvoArr){
+// 		for(String y: brandArr2){
+// 			if(x.getBrand().equals(y)){
+// 				choiceTvoArr.add(x);
+// 			}
+// 		}
+// 	}
 	
 
-
+	session.setAttribute("tvoArr", choiceTvoArr);
 	
 %>

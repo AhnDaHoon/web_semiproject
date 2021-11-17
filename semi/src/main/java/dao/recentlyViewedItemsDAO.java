@@ -186,7 +186,7 @@ public class recentlyViewedItemsDAO {
 	public void InsertOne(String id) {
 		sb.setLength(0);
 		sb.append("INSERT INTO RECENTLYVIEWEDITEMS (id) ");
-		sb.append("VALUES (id = ? )	");
+		sb.append("VALUES (? )	");
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sb.toString());

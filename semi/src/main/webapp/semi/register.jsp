@@ -40,6 +40,8 @@
 	#idcheck{
 		position: relative;
 		left: -190px;
+		border-radius: 5px;
+		background: white;
 	}
 	
 	.txt {
@@ -248,9 +250,14 @@
 
 </script>
 </head>
-
 <body>
 <div class="whole">
+	<%
+		Object obj = session.getAttribute("vo");
+		if (obj != null) {
+		response.sendRedirect("search1.jsp");
+		}
+	%>
 	<jsp:include page="header.jsp"></jsp:include>
 	
 	<div class="container">

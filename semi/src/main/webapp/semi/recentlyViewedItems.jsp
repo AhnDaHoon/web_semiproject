@@ -30,7 +30,7 @@
 	            url: "recentlyViewedItemsOk.jsp", 
 	            dataType: "html", 
 	            data:{"pno":pno, "pname":pname, "imgfile":imgfile}, 
-	            success:function(response, status, request, data){
+	            success:function(response, status, request){
 // 	               console.log(response.trim());
 	            },
 	
@@ -74,9 +74,9 @@
 	// 데이터 불러오기
 	for(int i = 1; i <= ticount; i++){
 		out.println("<tr class='product'>");
-			out.println("<td class = 'pno'>"+tidao.selectOnePno(i).getPno()+"</td>");
-			out.println("<td class = 'pname'>"+tidao.selectOnePno(i).getPname()+"</td>");
-			out.println("<td><img src = "+tidao.selectOnePno(i).getImgfile()+" class = 'img'></td>");
+			out.println("<td class = 'pno'>"+tidao.selectOnePno(i).getPno()+"</td><br>");
+			out.println("<td class = 'pname'>"+tidao.selectOnePno(i).getPname()+"</td><br>");
+			out.println("<td><img src = "+tidao.selectOnePno(i).getImgfile()+" class = 'img'></td><br>");
 			
 		out.println("</tr>");		
 	}
@@ -84,18 +84,6 @@
 
 	
 	%>
-	</table>
-	
-	<h2><%= rvo.getId() %></h2>
-	<h2><%= rvo.getImgfile1() %></h2>
-	<h2><%= rvo.getImgfile2() %></h2>
-	<h2><%= rvo.getImgfile3() %></h2>
-	<h2><%= rvo.getImgfile4() %></h2>
-	<h2><%= rvo.getImgfile5() %></h2>
-	<h2><%= rvo.getPname1() %></h2>
-	<h2><%= rvo.getPname2() %></h2>
-	<h2><%= rvo.getPname3() %></h2>
-	<h2><%= rvo.getPname4() %></h2>
-	<h2><%= rvo.getPname5() %></h2>
+
 </body>
 </html>

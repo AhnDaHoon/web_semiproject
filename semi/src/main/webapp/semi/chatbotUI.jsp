@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-	// 3초뒤에 창닫기 (왜인지 모르겠는데 창이 바로 닫혀버림) ** 3초후에 창꺼지는걸로 수정하기
 	$(function(){
 		$("#no").on("click", function(){
 			var sec = 2;
@@ -175,23 +174,7 @@
 </style>
 </head>
 <body>
-<!--     <div class="container"> -->
-<!--         <div class="main"> -->
-<!--        	        <div class="divscroll"> -->
-<!--        	        	<div class="chatbottext"> -->
-<!--        	        		<img class="chatavatar" src="../images/ball15.png" alt="" /> -->
-<!--        	        		<p class="chattext">챗봇 서비스 이용을 위해 [개인정보 수집·이용 동의 안내]에 대한 동의가 필요합니다.동의하시지 않는 경우 챗봇 서비스 이용이 불가합니다.</p><br> -->
-<!--        	        		<b><a class="choice first" href="" id="no">만 14세 미만입니다.</a></b> -->
-<!--        	        		<b><a class="choice first" href="chatbotUI2.jsp" id="ok">만 14세 이상입니다.</a></b> -->
-<!--        	        	</div> -->
-<!--        	        </div> -->
-<!--         </div> -->
-        
-<!--         <div class="footer"> -->
-<!--         	<input type="text" name="" id="input" disabled /> -->
-<!--         	<input type="button" class="btn blue" value="전송" id="messagesend"/> -->
-<!--         </div> -->
-<!--     </div> -->
+
     <%
 		Object obj = session.getAttribute("vo");
 		TongVO vo = (TongVO)obj;
@@ -221,7 +204,7 @@
 		%>
 				
 			
-	    %>
+	    
 	    <div class="container">
 	        <div class="main">
 	       	        <div class="divscroll">

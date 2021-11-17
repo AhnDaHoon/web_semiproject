@@ -82,8 +82,8 @@
 	}
 	
 	
-	System.out.println("energyIndex:   "+energyIndex);
-	System.out.println("energyArr:     "+energyArr);
+// 	System.out.println("energyIndex:   "+energyIndex);
+// 	System.out.println("energyArr:     "+energyArr);
 	
 	
 	// 브랜드
@@ -107,9 +107,9 @@
 		}
 	}
 	
-	System.out.println("brandIndex:    "+brandIndex);
-	System.out.println("brandArr:      "+brandArr);
-	System.out.println("pBrand:      "+pBrand);
+// 	System.out.println("brandIndex:    "+brandIndex);
+// 	System.out.println("brandArr:      "+brandArr);
+// 	System.out.println("pBrand:      "+pBrand);
 	
 	
 	// 도어
@@ -176,10 +176,10 @@
 	}
 	
 	
-	System.out.println("volumeIndex:    "+volumeIndex);
-	System.out.println("volumeArr:      "+volumeArr);
-	System.out.println("pVolume:      "+pVolume);
-	System.out.println("volumeVal:      "+volumeVal);
+// 	System.out.println("volumeIndex:    "+volumeIndex);
+// 	System.out.println("volumeArr:      "+volumeArr);
+// 	System.out.println("pVolume:      "+pVolume);
+// 	System.out.println("volumeVal:      "+volumeVal);
 
 
 
@@ -192,7 +192,6 @@
 	
 			
 	System.out.println(refriArr.size());
-// 	System.out.println(brandVal);
 // 	System.out.println(doorVal);
 // 	for(RefriVO x: refriArr){
 // 		System.out.println(x.getPname());
@@ -200,8 +199,5 @@
 	session.setAttribute("energyArr", energyArr);
 	session.setAttribute("brandArr", brandArr);
 	session.setAttribute("doorArr", doorArr);
-	
-	
-	
-	
+
 %>

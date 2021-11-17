@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>통하다 :: 하나로 통하다</title>
 <style>
 	.whole{
 		width: 1800px;
@@ -68,6 +68,9 @@
        	font-size: 23px;
     	position: relative;
     	top:-25px;
+    }
+    #submit {
+    	font-weight: bold;
     }
 </style>
 </head>

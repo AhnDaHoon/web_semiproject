@@ -8,18 +8,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>통하다 :: 하나로 통하다</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 	<%
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
-		
+		session.setAttribute("id", id);
 		TongDAO dao = new TongDAO();
 		TongVO vo = dao.selectOne(id, pw);
 		
 		recentlyViewedItemsDAO rdao = new recentlyViewedItemsDAO();
 		recentlyViewedItemsVO rvo = rdao.selectRvd(id);
+
 		
 		// 세션 유지시간 7일
 		session.setMaxInactiveInterval(60*60*24*7);
@@ -55,18 +57,15 @@
 						
 			
 	<%
-			
+		response.sendRedirect("search1.jsp");
+	
 		}else{
-
+			
 	%>
-		<h1>값이 존재하지 않습니다.</h1>
-		<h1><%= id %></h1>
-		<h1><%= pw %></h1>
-		<h1><%= vo %></h1>
-	
+		<jsp:include page="login.jsp"></jsp:include>
 	<%
+		out.println("<script>alert('아이디 또는 비밀번호를 확인해 주세요.'); history.back();</script>");
 		}
-	
 	%>
 </body>
 </html>

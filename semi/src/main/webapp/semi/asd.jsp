@@ -1,71 +1,57 @@
-<%@page import="vo.RefriVO"%>
-<%@page import="dao.RefriDAO"%>
-<%@page import="dao.TVDAO"%>
-<%@page import="vo.TvVO"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.Set"%>
-<%@page import="java.util.HashSet"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%
-	System.out.println("=============================================");
-
-	
-	ArrayList<String> energyArr = new ArrayList<String>();
-	String energyVal = " ";
-	energyArr.add("1");
-	energyArr.add("2");
-	
-	if(energyArr.size() != 0){
-		for(int i = 0; i < energyArr.size(); i++){
-			if(i == 0){
-				energyVal = "WHERE energy = " + energyArr.get(i);			
-			}else{
-				energyVal = energyVal + " OR energy = " + energyArr.get(i);
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<meta charset="UTF-8">
+<style>
+button{
+	font-size : 5em;
+}
+</style>
+<title>Insert title here</title>
+</head>
+<body>
+<div>
+	<button id="error">error</button>
+	<button id="warning">warning</button>
+	<button id="success">success</button>
+	<button id="info">info</button>
+</div>
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="text/javascript">
+	toastr.options = {
+			  "closeButton": false,
+			  "debug": false,
+			  "newestOnTop": false,
+			  "progressBar": true,
+			  "positionClass": "toast-top-right",
+			  "preventDuplicates": false,
+			  "onclick": null,
+			  "showDuration": "100",
+			  "hideDuration": "1000",
+			  "timeOut": "1500",
+			  "extendedTimeOut": "1000",
+			  "showEasing": "swing",
+			  "hideEasing": "linear",
+			  "showMethod": "fadeIn",
+			  "hideMethod": "fadeOut"
 			}
-		}
-	}
-	
-	ArrayList<String> brandArr = new ArrayList<String>();
-	String brandVal = " ";
-	brandArr.add("'LG'");	
-	brandArr.add("'SAMSUNG'");	
-	if(brandArr.size() != 0){
-		for(int i = 0; i < brandArr.size(); i++){
-			if(i == 0){
-				brandVal = "WHERE brand = " + brandArr.get(i);			
-			}else{
-				brandVal = brandVal + " OR brand = " + brandArr.get(i);
-			}
-		}
-	}
-	
-	ArrayList<String> doorArr = new ArrayList<String>();
-	String doorVal = " ";
-	doorArr.add("2");
-	if(doorArr.size() != 0){
-		for(int i = 0; i < doorArr.size(); i++){
-			if(i == 0){
-				doorVal = "WHERE door = " + doorArr.get(i);			
-			}else{
-				doorVal = doorVal + " OR door = " + doorArr.get(i);
-			}
-		}
-	}
-	
-// 	System.out.println("SELECT pno, code, pname, pdesc, brand, price, regdate, energy, imgfile, door, volume, codename, codename2, aaaa");
-// 	System.out.println("FROM(SELECT pno, code, pname, pdesc, brand, price, regdate, energy, imgfile, door, volume, codename, codename2, aaaa ");
-// 	System.out.println("		FROM refri ");
-// 	System.out.println(energyVal+")");
-// 	System.out.println(brandVal);
-	RefriDAO dao = new RefriDAO();
-	ArrayList<RefriVO> refriArr = dao.searchEa(energyVal, brandVal, doorVal);
 			
-	System.out.println(refriArr);
-	System.out.println(energyVal);
-	System.out.println(brandVal);
-	System.out.println(doorVal);
-	for(RefriVO x: refriArr){
-		System.out.println(x);
-	}
-%>
+	$('#error').on('click', function(){
+		toastr.error('error');
+	});
+	$('#warning').on('click', function(){
+		toastr.warning('warning');
+	});
+	$('#success').on('click', function(){
+		toastr.success('success');
+	});
+	$('#info').on('click', function(){
+		toastr.info('info');
+	});
+</script>
+ 
+</body>
+</html>
