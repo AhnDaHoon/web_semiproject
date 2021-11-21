@@ -156,8 +156,8 @@
 // 	System.out.println("priceVal:      "+priceVal);
 	
 
-	// 사이즈
-		// 가격
+
+		// 사이즈
 	String volumeVal = " ";
 	int volumeIndex = volumeArr.indexOf(pVolume);
 	if(pVolume != null && volumeIndex == -1 && !pVolume.equals("volumereset")){
@@ -191,13 +191,15 @@
 	ArrayList<RefriVO> refriArr = dao.searchEa(energyVal, brandVal, doorVal, priceVal, volumeVal);
 	
 			
-	System.out.println(refriArr.size());
-// 	System.out.println(doorVal);
-// 	for(RefriVO x: refriArr){
-// 		System.out.println(x.getPname());
+	System.out.println(refriArr.size()); // 제품 갯수
+// 	System.out.println(energyArr);
+// 	System.out.println(brandArr);
+// 	System.out.println(doorArr);
+// 	System.out.println(priceArr);
+// 	System.out.println(volumeArr);
 	session.setAttribute("tvoArr", refriArr);
-	session.setAttribute("energyArr", energyArr);
-	session.setAttribute("brandArr", brandArr);
-	session.setAttribute("doorArr", doorArr);
+// 	session.setAttribute("energyArr", energyArr);
+// 	session.setAttribute("brandArr", brandArr);
+// 	session.setAttribute("doorArr", doorArr);
 
 %>
